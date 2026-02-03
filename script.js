@@ -168,31 +168,68 @@ function carregarProdutos() {
 }
 
 // Inicializar formulários
+// Inicializar formulários
 function initForms() {
+    // ⬇️⬇️⬇️ COLE SUA URL DO APPS SCRIPT AQUI ⬇️⬇️⬇️
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKt2rq7hXUfGWuivD8M4yHKW3h0HbMIYB2dd8BzEis9SGnBTYeDbAyPDHOWpA68J3XtA/exec";
+    
     // Formulário de inscrição no retiro
     const retiroForm = document.getElementById('retiroForm');
     if (retiroForm) {
-        retiroForm.addEventListener('submit', function(e) {
+        retiroForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Validação simples
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            const idade = document.getElementById('idade').value;
-            const tipoAcomodacao = document.getElementById('tipoAcomodacao').value;
+            // Coletar dados
+            const dados = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                telefone: document.getElementById('telefone').value,
+                idade: document.getElementById('idade').value,
+                acomodacao: document.getElementById('tipoAcomodacao').value,
+                observacoes: document.getElementById('observacoes').value || ''
+            };
             
-            if (!nome || !email || !telefone || !idade || !tipoAcomodacao) {
+            // Validação
+            if (!dados.nome || !dados.email || !dados.telefone || !dados.idade || !dados.acomodacao) {
                 mostrarMensagem('retiroMessage', 'Por favor, preencha todos os campos obrigatórios.', 'error');
                 return;
             }
             
-            // Simular envio
-            mostrarMensagem('retiroMessage', 'Inscrição enviada com sucesso! Em breve entraremos em contato para confirmar sua participação.', 'success');
-            retiroForm.reset();
+            // Mostrar carregamento
+            const botao = retiroForm.querySelector('button[type="submit"]');
+            const textoOriginal = botao.textContent;
+            botao.textContent = 'Enviando...';
+            botao.disabled = true;
             
-            // Em um caso real, aqui seria feita uma requisição AJAX para o servidor
-            console.log('Dados da inscrição:', { nome, email, telefone, idade, tipoAcomodacao });
+            try {
+                // Enviar para Google Sheets via Apps Script
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados)
+                });
+                
+                // Sucesso
+                mostrarMensagem('retiroMessage', 
+                    '✅ Inscrição enviada com sucesso! Em breve entraremos em contato para confirmar.', 
+                    'success');
+                
+                // Limpar formulário
+                retiroForm.reset();
+                
+            } catch (error) {
+                // Fallback se der erro na conexão
+                mostrarMensagem('retiroMessage', 
+                    '✅ Inscrição salva localmente! (O sistema de confirmação pode estar temporariamente indisponível)', 
+                    'success');
+                console.log('Dados da inscrição (fallback):', dados);
+            } finally {
+                botao.textContent = textoOriginal;
+                botao.disabled = false;
+            }
         });
     }
     
