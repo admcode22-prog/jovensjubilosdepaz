@@ -64,7 +64,7 @@ const postsBlog = [
         id: 1,
         titulo: "Bem-vindos ao Novo Ano 2026",
         data: "2026-02-04",
-        autor: "Líder Hemerson Amaral",
+        autor: "Andressa Miotto",
         resumo: "Neste novo ano ministerial, convidamos todos os jovens a se engajarem nas atividades e crescerem juntos na fé.",
         imagem: "albuns/2026.jpeg",
         conteudo: `
@@ -72,31 +72,24 @@ const postsBlog = [
             
             <h4>O que temos preparado para 2026:</h4>
             <ul>
-                <li><strong>Encontros semanais:</strong> Todos os sábados às 19h no salão principal</li>
-                <li><strong>Estudos bíblicos em pequenos grupos:</strong> Terças-feiras às 20h</li>
-                <li><strong>Retiro espiritual:</strong> 16-18 de maio na Fazenda Monte Sião</li>
-                <li><strong>Projetos sociais:</strong> Ação solidária na comunidade</li>
+                <li><strong>Encontros mensais:</strong> Todo primeiro sábado do mês às 19h30 no salão principal</li>
+                <li><strong>Todo domingo escola dominical:</strong> às 09h</li>
+                <li><strong>Retiro START:</strong> 15-17 de maio na Fazenda Monte Sião</li>
+                <li><strong>Congresso "VIRÁ":</strong> 18 a 20 de Setembro</li>
             </ul>
             
-            <p>Nosso tema para este ano é <strong>"Crescendo juntos em Cristo"</strong>. Queremos ser uma comunidade onde cada jovem possa:</p>
-            
-            <ul>
-                <li>Crescer espiritualmente</li>
-                <li>Desenvolver seus dons e talentos</li>
-                <li>Fazer amizades verdadeiras</li>
-                <li>Servir com propósito</li>
-            </ul>
+            <p>Nosso tema para este ano é <strong>"Virá"</strong>. Queremos ser geração que espera ansiosos para a volta Dele</p>
             
             <p>Convidamos você a participar ativamente! Traga seus amigos, suas ideias e seu coração aberto para o que Deus quer fazer em nossa vida.</p>
             
-            <p><strong>Primeiro encontro:</strong> 8 de fevereiro, sábado, 19h.<br>
-            <strong>Traga:</strong> Sua Bíblia, um caderno e um amigo!</p>
+            <p><strong>Primeiro culto:</strong> 7 de fevereiro, sábado, 19h30.<br>
+            <strong>Traga:</strong> Sua Bíblia e um amigo!</p>
             
             <p>Que Deus abençoe ricamente nosso ano!</p>
             
             <p>Com carinho,<br>
-            <strong>Líder Hemerson Amaral</strong><br>
-            Coordenador do Ministério de Jovens</p>
+            <strong>Andressa Miotto</strong><br>
+            </p>
         `,
         conteudoExtra: `
             <div class="post-actions">
