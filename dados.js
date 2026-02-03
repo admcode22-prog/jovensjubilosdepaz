@@ -131,21 +131,21 @@ const albunsFotos = [
         descricao: "Momento de comunhão, risadas e boa comida!",
         fotoPrincipal: "albuns/encontros/2.jpeg",
         fotos: [
-            "imagens/albuns/encontros/1.jpeg",
-            "imagens/albuns/encontros/3.jpeg",
-            "imagens/albuns/encontros/4.jpeg",
-            "imagens/albuns/encontros/5.jpeg",
-            "imagens/albuns/encontros/6.jpeg"
+            "albuns/encontros/1.jpeg",
+            "albuns/encontros/3.jpeg",
+            "albuns/encontros/4.jpeg",
+            "albuns/encontros/5.jpeg",
+            "albuns/encontros/6.jpeg"
         ]
     },
     {
         id: 2,
         titulo: "Cantina",
         descricao: "Momento de criação de receitas, ajuda na obra e arrecadação",
-        fotoPrincipal: "imagens/albuns/cantina/1.jpeg",
+        fotoPrincipal: "albuns/cantina/1.jpeg",
         fotos: [
-            "imagens/albuns/cantina/2.jpeg",
-            "imagens/albuns/cantina/3.jpeg"
+            "albuns/cantina/2.jpeg",
+            "albuns/cantina/3.jpeg"
         ]
     },
     {
@@ -153,119 +153,119 @@ const albunsFotos = [
         titulo: "Retiro - 2025",
         data: "09-2025",
         descricao: "Diversão e aprendizado na chacara com a galera!",
-        fotoPrincipal: "imagens/albuns/retiro-2025/1.jpeg",
+        fotoPrincipal: "albuns/retiro-2025/1.jpeg",
         fotos: [
-            "imagens/albuns/retiro-2025/2.jpeg",
-            "imagens/albuns/retiro-2025/3.jpeg",
-            "imagens/albuns/retiro-2025/4.jpeg",
-            "imagens/albuns/retiro-2025/5.jpeg",
-            "imagens/albuns/retiro-2025/6.jpeg",
-            "imagens/albuns/retiro-2025/7.jpeg",
-            "imagens/albuns/retiro-2025/8.jpeg",
-            "imagens/albuns/retiro-2025/9.jpeg"
+            "albuns/retiro-2025/2.jpeg",
+            "albuns/retiro-2025/3.jpeg",
+            "albuns/retiro-2025/4.jpeg",
+            "albuns/retiro-2025/5.jpeg",
+            "albuns/retiro-2025/6.jpeg",
+            "albuns/retiro-2025/7.jpeg",
+            "albuns/retiro-2025/8.jpeg",
+            "albuns/retiro-2025/9.jpeg"
         ]
     },
     {
         id: 4,
         titulo: "Encontro de Aniversariantes",
         descricao: "Um dia lindo para comemorar com os aniversariantes do semestre!",
-        fotoPrincipal: "imagens/albuns/aniversario/1.jpeg",
+        fotoPrincipal: "albuns/aniversario/1.jpeg",
         fotos: [
-            "imagens/albuns/aniversario/2.jpeg",
-            "imagens/albuns/aniversario/3.jpeg",
-            "imagens/albuns/aniversario/4.jpeg",
-            "imagens/albuns/aniversario/5.jpeg",
-            "imagens/albuns/aniversario/6.jpeg"
+            "albuns/aniversario/2.jpeg",
+            "albuns/aniversario/3.jpeg",
+            "albuns/aniversario/4.jpeg",
+            "albuns/aniversario/5.jpeg",
+            "albuns/aniversario/6.jpeg"
         ]
     },
     {
         id: 5,
         titulo: "Cultos Semanais",
         descricao: "Cultos onde estamos sempre reunidos!",
-        fotoPrincipal: "imagens/albuns/cultos/1.jpeg",
+        fotoPrincipal: "albuns/cultos/1.jpeg",
         fotos: [
-            "imagens/albuns/cultos/2.jpeg",
-            "imagens/albuns/cultos/3.jpeg",
-            "imagens/albuns/cultos/4.jpeg",
-            "imagens/albuns/cultos/5.jpeg",
-            "imagens/albuns/cultos/6.jpeg",
-            "imagens/albuns/cultos/7.jpeg",
-            "imagens/albuns/cultos/8.jpeg",
-            "imagens/albuns/cultos/9.jpeg",
-            "imagens/albuns/cultos/10.jpeg",
-            "imagens/albuns/cultos/11.jpeg",
-            "imagens/albuns/cultos/12.jpeg",
-            "imagens/albuns/cultos/13.jpeg",
-            "imagens/albuns/cultos/14.jpeg",
-            "imagens/albuns/cultos/15.jpeg",
-            "imagens/albuns/cultos/16.jpeg",
-            "imagens/albuns/cultos/17.jpeg",
-            "imagens/albuns/cultos/18.jpeg",
-            "imagens/albuns/cultos/19.jpeg"
+            "albuns/cultos/2.jpeg",
+            "albuns/cultos/3.jpeg",
+            "albuns/cultos/4.jpeg",
+            "albuns/cultos/5.jpeg",
+            "albuns/cultos/6.jpeg",
+            "albuns/cultos/7.jpeg",
+            "albuns/cultos/8.jpeg",
+            "albuns/cultos/9.jpeg",
+            "albuns/cultos/10.jpeg",
+            "albuns/cultos/11.jpeg",
+            "albuns/cultos/12.jpeg",
+            "albuns/cultos/13.jpeg",
+            "albuns/cultos/14.jpeg",
+            "albuns/cultos/15.jpeg",
+            "albuns/cultos/16.jpeg",
+            "albuns/cultos/17.jpeg",
+            "albuns/cultos/18.jpeg",
+            "albuns/cultos/19.jpeg"
         ]
     },
     {
         id: 6,
         titulo: "Congresso - 2025",
         descricao: "Nosso congresso 2025, com muito agir do Espírito Santo!",
-        fotoPrincipal: "imagens/albuns/congresso-2025/1.jpeg",
+        fotoPrincipal: "albuns/congresso-2025/1.jpeg",
         fotos: [
-            "imagens/albuns/congresso-2025/2.jpeg",
-            "imagens/albuns/congresso-2025/3.jpeg",
-            "imagens/albuns/congresso-2025/4.jpeg",
-            "imagens/albuns/congresso-2025/5.jpeg"
+            "albuns/congresso-2025/2.jpeg",
+            "albuns/congresso-2025/3.jpeg",
+            "albuns/congresso-2025/4.jpeg",
+            "albuns/congresso-2025/5.jpeg"
         ]
     },
     {
         id: 7,
         titulo: "Escola Bíblica Dominical",
         descricao: "Nossos domingos cheios de aprendizagem e comunhão",
-        fotoPrincipal: "imagens/albuns/ebd/1.jpeg",
+        fotoPrincipal: "albuns/ebd/1.jpeg",
         fotos: [
-            "imagens/albuns/ebd/2.jpeg",
-            "imagens/albuns/ebd/3.jpeg",
-            "imagens/albuns/ebd/4.jpeg",
-            "imagens/albuns/ebd/5.jpeg",
-            "imagens/albuns/ebd/6.jpeg",
-            "imagens/albuns/ebd/7.jpeg",
-            "imagens/albuns/ebd/8.jpeg",
-            "imagens/albuns/ebd/9.jpeg"
+            "albuns/ebd/2.jpeg",
+            "albuns/ebd/3.jpeg",
+            "albuns/ebd/4.jpeg",
+            "albuns/ebd/5.jpeg",
+            "albuns/ebd/6.jpeg",
+            "albuns/ebd/7.jpeg",
+            "albuns/ebd/8.jpeg",
+            "albuns/ebd/9.jpeg"
         ]
     },
     {
         id: 8,
         titulo: "Ensaios aos sábados",
         descricao: "Nossos sabados de ensaio",
-        fotoPrincipal: "imagens/albuns/ensaios/1.jpeg",
+        fotoPrincipal: "albuns/ensaios/1.jpeg",
         fotos: [
-            "imagens/albuns/ensaios/2.jpeg",
-            "imagens/albuns/ensaios/3.jpeg",
-            "imagens/albuns/ensaios/4.jpeg",
-            "imagens/albuns/ensaios/5.jpeg",
-            "imagens/albuns/ensaios/6.jpeg",
-            "imagens/albuns/ensaios/7.jpeg",
-            "imagens/albuns/ensaios/8.jpeg"
+            "albuns/ensaios/2.jpeg",
+            "albuns/ensaios/3.jpeg",
+            "albuns/ensaios/4.jpeg",
+            "albuns/ensaios/5.jpeg",
+            "albuns/ensaios/6.jpeg",
+            "albuns/ensaios/7.jpeg",
+            "albuns/ensaios/8.jpeg"
         ]
     },
     {
         id: 8,
         titulo: "Evangelismos",
         descricao: "Nós dias que saimos para evangelizar",
-        fotoPrincipal: "imagens/albuns/evangelismo/1.jpeg",
+        fotoPrincipal: "albuns/evangelismo/1.jpeg",
         fotos: [
-            "imagens/albuns/evangelismo/2.jpeg"
+            "albuns/evangelismo/2.jpeg"
         ]
     },
     {
         id: 9,
         titulo: "Roles pós culto",
         descricao: "Nossos momentos de comunhão e comida pós culto!",
-        fotoPrincipal: "imagens/albuns/pos culto/1.jpeg",
+        fotoPrincipal: "albuns/pos culto/1.jpeg",
         fotos: [
-            "imagens/albuns/pos culto/2.jpeg",
-            "imagens/albuns/pos culto/3.jpeg",
-            "imagens/albuns/pos culto/4.jpeg",
-            "imagens/albuns/pos culto/5.jpeg"
+            "albuns/pos culto/2.jpeg",
+            "albuns/pos culto/3.jpeg",
+            "albuns/pos culto/4.jpeg",
+            "albuns/pos culto/5.jpeg"
         ]
     }
 ];
