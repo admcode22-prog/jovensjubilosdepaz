@@ -129,7 +129,7 @@ const albunsFotos = [
         id: 1,
         titulo: "Encontros",
         descricao: "Momento de comunhão, risadas e boa comida!",
-        fotoPrincipal: "imagens/albuns/encontros/2.jpeg",
+        fotoPrincipal: "albuns/encontros/2.jpeg",
         fotos: [
             "imagens/albuns/encontros/1.jpeg",
             "imagens/albuns/encontros/3.jpeg",
