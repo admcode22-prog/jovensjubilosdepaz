@@ -175,7 +175,7 @@ const postsBlog = [
             <h4>Líder Eliezer:</h4>
             <p>atualizando</p>
             
-            <h4>Líder Veridiana:</h4>
+            <h4>Líder Veridiane:</h4>
 
             <p>Jovens, sabemos que muitas são as oportunidades que o mundo oferece lá fora, mas em Cristo somos muito mais que vencedores, os sonhos que estão no papel, só é possível quando temos um Deus que nos guia e faz muito mais do que pedimos ou desejamos. Persevere, continue. O que está por vir é maior do que o que ficou para trás.</p>
             
