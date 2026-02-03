@@ -76,7 +76,7 @@ const postsBlog = [
         autor: "Coordenadora Maria",
         resumo: "Estamos nos preparando para o nosso retiro anual. Confira todas as informações importantes.",
         imagem: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        conteudo: "O retiro espiritual está chegando e temos muitas novidades este ano. Teremos palestrantes especiais..."
+        conteudo: "O retiro está chegando e temos muitas novidades este ano. Teremos palestrantes especiais..."
     },
     {
         id: 3,
@@ -96,7 +96,7 @@ const produtos = [
         nome: "Camiseta Básica Jovens 2024",
         preco: 45.00,
         imagem: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        descricao: "Camiseta 100% algodão, estampa frontal com o logo dos Jovens da Igreja 2024.",
+        descricao: "Camiseta 100% algodão, estampa frontal com o logo dos Jovens Júbilos de Paz 2026.",
         cores: ["Branca", "Preta", "Azul"],
         tamanhos: ["P", "M", "G", "GG"],
         disponivel: true
@@ -106,14 +106,14 @@ const produtos = [
         nome: "Camiseta Premium Retiro 2024",
         preco: 65.00,
         imagem: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        descricao: "Edição especial do retiro espiritual 2024. Tecido de alta qualidade.",
+        descricao: "Edição especial do retiro 2026. Tecido de alta qualidade.",
         cores: ["Cinza", "Verde", "Vermelha"],
         tamanhos: ["P", "M", "G", "GG", "XG"],
         disponivel: true
     },
     {
         id: 3,
-        nome: "Moletom Jovens da Igreja",
+        nome: "Moletom Jovens Júbilos de Paz",
         preco: 89.90,
         imagem: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
         descricao: "Moletom com capuz, perfeito para os dias mais frios. Logo bordado.",
