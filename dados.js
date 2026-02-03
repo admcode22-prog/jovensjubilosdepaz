@@ -62,9 +62,9 @@ const eventos = [
 const postsBlog = [
     {
         id: 1,
-        titulo: "Bem-vindos ao Novo Ano Ministerial",
-        data: "2024-10-05",
-        autor: "Pastor João",
+        titulo: "Bem-vindos ao Novo Ano 2026",
+        data: "2026-02-04",
+        autor: "Líder Hemerson Amaral",
         resumo: "Neste novo ano ministerial, convidamos todos os jovens a se engajarem nas atividades e crescerem juntos na fé.",
         imagem: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
         conteudo: "Queridos jovens, é com muita alegria que iniciamos mais um ano de atividades em nosso grupo..."
