@@ -86,12 +86,68 @@ function carregarBlog() {
                         <span><i class="far fa-user"></i> ${post.autor}</span>
                         <span><i class="far fa-calendar"></i> ${dataFormatada}</span>
                     </div>
+                    <button class="btn-ler-mais" data-post-id="${post.id}">
+                        <i class="fas fa-book-open"></i> Ler artigo completo
+                    </button>
                 </div>
             </div>
         `;
     });
     
     container.innerHTML = blogHTML;
+    
+    // Adicionar eventos para abrir posts
+    document.querySelectorAll('.btn-ler-mais').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const postId = parseInt(this.getAttribute('data-post-id'));
+            abrirPostCompleto(postId);
+        });
+    });
+}
+
+// Abrir post completo no modal
+function abrirPostCompleto(postId) {
+    const post = postsBlog.find(p => p.id === postId);
+    if (!post) return;
+    
+    const modal = document.getElementById('postModal');
+    const data = new Date(post.data);
+    const dataFormatada = data.toLocaleDateString('pt-BR');
+    
+    // Preencher modal com dados do post
+    document.getElementById('modalTitle').textContent = post.titulo;
+    document.getElementById('modalMeta').innerHTML = `
+        <span><i class="far fa-user"></i> ${post.autor}</span>
+        <span><i class="far fa-calendar"></i> ${dataFormatada}</span>
+    `;
+    document.getElementById('modalImage').src = post.imagem;
+    document.getElementById('modalImage').alt = post.titulo;
+    document.getElementById('modalText').innerHTML = `
+        <p>${post.conteudo}</p>
+        ${post.conteudoExtra || ''}
+    `;
+    
+    // Mostrar modal
+    modal.classList.add('active');
+    
+    // Fechar modal
+    document.getElementById('closeModal').onclick = () => {
+        modal.classList.remove('active');
+    };
+    
+    // Fechar ao clicar fora
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+        }
+    });
+    
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            modal.classList.remove('active');
+        }
+    });
 }
 
 // Carregar produtos (camisetas)

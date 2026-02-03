@@ -6,7 +6,7 @@ const eventos = [
         id: 1,
         titulo: "Ensaio - Jovens",
         data: "2026-02-08",
-        hora: "60:00",
+        hora: "18:00", // CORRIGIDO: era "60:00"
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha ensaiar conosco, ter um momento com Deus!",
         imagem: "https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
@@ -58,7 +58,7 @@ const eventos = [
     }
 ];
 
-// Dados do blog (recados)
+// Dados do blog (recados) - APENAS UMA VEZ!
 const postsBlog = [
     {
         id: 1,
@@ -66,26 +66,162 @@ const postsBlog = [
         data: "2026-02-04",
         autor: "Líder Hemerson Amaral",
         resumo: "Neste novo ano ministerial, convidamos todos os jovens a se engajarem nas atividades e crescerem juntos na fé.",
-        imagem: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        conteudo: "Queridos jovens, é com muita alegria que iniciamos mais um ano de atividades em nosso grupo..."
+        imagem: "albuns/2026.jpeg",
+        conteudo: `
+            <p>Queridos jovens, é com muita alegria que iniciamos mais um ano de atividades em nosso grupo!</p>
+            
+            <h4>O que temos preparado para 2026:</h4>
+            <ul>
+                <li><strong>Encontros semanais:</strong> Todos os sábados às 19h no salão principal</li>
+                <li><strong>Estudos bíblicos em pequenos grupos:</strong> Terças-feiras às 20h</li>
+                <li><strong>Retiro espiritual:</strong> 16-18 de maio na Fazenda Monte Sião</li>
+                <li><strong>Projetos sociais:</strong> Ação solidária na comunidade</li>
+            </ul>
+            
+            <p>Nosso tema para este ano é <strong>"Crescendo juntos em Cristo"</strong>. Queremos ser uma comunidade onde cada jovem possa:</p>
+            
+            <ul>
+                <li>Crescer espiritualmente</li>
+                <li>Desenvolver seus dons e talentos</li>
+                <li>Fazer amizades verdadeiras</li>
+                <li>Servir com propósito</li>
+            </ul>
+            
+            <p>Convidamos você a participar ativamente! Traga seus amigos, suas ideias e seu coração aberto para o que Deus quer fazer em nossa vida.</p>
+            
+            <p><strong>Primeiro encontro:</strong> 8 de fevereiro, sábado, 19h.<br>
+            <strong>Traga:</strong> Sua Bíblia, um caderno e um amigo!</p>
+            
+            <p>Que Deus abençoe ricamente nosso ano!</p>
+            
+            <p>Com carinho,<br>
+            <strong>Líder Hemerson Amaral</strong><br>
+            Coordenador do Ministério de Jovens</p>
+        `,
+        conteudoExtra: `
+            <div class="post-actions">
+                <button class="btn-compartilhar" onclick="compartilharPost(1)">
+                    <i class="fas fa-share-alt"></i> Compartilhar
+                </button>
+                <button class="btn-imprimir" onclick="window.print()">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+            </div>
+        `
     },
     {
         id: 2,
-        titulo: "Preparativos para o Retiro 2024",
-        data: "2024-10-10",
-        autor: "Coordenadora Maria",
-        resumo: "Estamos nos preparando para o nosso retiro anual. Confira todas as informações importantes.",
-        imagem: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        conteudo: "O retiro está chegando e temos muitas novidades este ano. Teremos palestrantes especiais..."
+        titulo: "Preparativos para o Retiro 2026",
+        data: "2026-02-10",
+        autor: "Líder Jheniffer",
+        resumo: "Estamos nos preparando para o nosso retiro anual com o tema START. Confira todas as informações importantes.",
+        imagem: "albuns/retiro.jpeg",
+        conteudo: `
+            <p>Olá, jovens! O tão esperado Retiro de 2026 está chegando!</p>
+            
+            <h4>📅 Datas: 15 a 17 de maio de 2026</h4>
+            <h4>📍 Local: Fazenda Monte Sião</h4>
+            <h4>🎯 Tema: "Start"</h4>
+            
+            <p>Este ano teremos atividades especiais:</p>
+            
+            <h5>Pregadores confirmados:</h5>
+            <ul>
+                <li><strong>Pastor Roberto Silva:</strong> "Fé em tempos de incerteza"</li>
+                <li><strong>Missionária Ana Paula:</strong> "Deus tem um propósito para sua vida"</li>
+                <li><strong>Pastor Jovem Lucas:</strong> "Relacionamentos saudáveis"</li>
+            </ul>
+            
+            <h5>Atividades:</h5>
+            <ul>
+                <li>Trilhas</li>
+                <li>Noite de louvor com fogueira</li>
+                <li>Grupos de conversa e oração</li>
+                <li>Gincanas e dinâmicas</li>
+                <li>Tarde de esportes</li>
+            </ul>
+            
+            <h5>Valores:</h5>
+            <ul>
+                <li><strong>Acomodação coletiva:</strong> R$ 400,00</li>
+            </ul>
+            
+            <p><strong>Incluso:</strong> Todas as refeições, hospedagem, materiais e transporte (ida e volta).</p>
+            
+            <h5>Como se inscrever:</h5>
+            <ol>
+                <li>Preencha o formulário de inscrição no nosso site</li>
+                <li>Faça o pagamento via PIX para garantir sua vaga</li>
+                <li>Envie o comprovante para nosso WhatsApp</li>
+                <li>Receba a confirmação por email</li>
+            </ol>
+            
+            <p><strong>Vagas limitadas!</strong> São apenas 160 vagas disponíveis.</p>
+            
+            <p>Para mais informações: (31) 7557-6657 ou jovens@igreja.com</p>
+            
+            <p>Contamos com sua presença!</p>
+            
+            <p>Abraços,<br>
+            <strong>Nathaly</strong><br>
+            Secretaria do Retiro</p>
+        `
     },
     {
         id: 3,
-        titulo: "Campanha de Doações para o Natal",
-        data: "2024-10-12",
+        titulo: "Campanha de Doações para o Natal 2026",
+        data: "2026-10-12",
         autor: "Diácono Pedro",
         resumo: "Vamos ajudar famílias carentes neste Natal. Participe da nossa campanha de doações.",
         imagem: "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        conteudo: "Como todos os anos, organizaremos a campanha 'Natal Solidário'. Precisamos de voluntários..."
+        conteudo: `
+            <p>Queridos jovens, como todos os anos, organizaremos a campanha 'Natal Solidário'.</p>
+            
+            <h4>Como você pode ajudar:</h4>
+            
+            <h5>1. Doação de alimentos:</h5>
+            <ul>
+                <li>Arroz (5kg)</li>
+                <li>Feijão (2kg)</li>
+                <li>Açúcar (2kg)</li>
+                <li>Óleo (1L)</li>
+                <li>Leite em pó</li>
+                <li>Biscoitos e massas</li>
+            </ul>
+            
+            <h5>2. Doação de brinquedos:</h5>
+            <ul>
+                <li>Brinquedos novos ou em bom estado</li>
+                <li>Para crianças de 0 a 12 anos</li>
+                <li>Bolas, bonecas, carrinhos, jogos educativos</li>
+            </ul>
+            
+            <h5>3. Voluntariado:</h5>
+            <ul>
+                <li>Embalagem das cestas: 15 de dezembro</li>
+                <li>Distribuição: 20 de dezembro</li>
+                <li>Atividades com crianças: durante a distribuição</li>
+            </ul>
+            
+            <h4>Pontos de coleta:</h4>
+            <ul>
+                <li>Secretaria da igreja: Segunda a sexta, 14h-18h</li>
+                <li>Salão dos jovens: Sábados, 18h-21h</li>
+                <li>Podemos buscar em sua casa (combinar por WhatsApp)</li>
+            </ul>
+            
+            <p><strong>Meta:</strong> 100 cestas básicas e 200 brinquedos!</p>
+            
+            <p>Para se voluntariar ou mais informações:<br>
+            <strong>WhatsApp:</strong> (11) 99999-9999<br>
+            <strong>Email:</strong> voluntarios@igreja.com</p>
+            
+            <p>"Quem é bondoso para com os pobres empresta ao Senhor, e ele o recompensará." - Provérbios 19:17</p>
+            
+            <p>Com gratidão,<br>
+            <strong>Diácono Pedro</strong><br>
+            Coordenador de Ações Sociais</p>
+        `
     }
 ];
 
@@ -93,7 +229,7 @@ const postsBlog = [
 const produtos = [
     {
         id: 1,
-        nome: "Camiseta Básica Jovens 2024",
+        nome: "Camiseta Básica Jovens 2026",
         preco: 45.00,
         imagem: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
         descricao: "Camiseta 100% algodão, estampa frontal com o logo dos Jovens Júbilos de Paz 2026.",
@@ -103,7 +239,7 @@ const produtos = [
     },
     {
         id: 2,
-        nome: "Camiseta Premium Retiro 2024",
+        nome: "Camiseta Premium Retiro 2026",
         preco: 65.00,
         imagem: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
         descricao: "Edição especial do retiro 2026. Tecido de alta qualidade.",
@@ -123,11 +259,12 @@ const produtos = [
     }
 ];
 
-// Dados dos álbuns de fotos
+// Dados dos álbuns de fotos - IDs CORRETOS E ÚNICOS
 const albunsFotos = [
     {
         id: 1,
         titulo: "Encontros",
+        data: "2025-01-01", // ADICIONADO: data
         descricao: "Momento de comunhão, risadas e boa comida!",
         fotoPrincipal: "albuns/encontros/2.jpeg",
         fotos: [
@@ -141,6 +278,7 @@ const albunsFotos = [
     {
         id: 2,
         titulo: "Cantina",
+        data: "2025-02-01", // ADICIONADO: data
         descricao: "Momento de criação de receitas, ajuda na obra e arrecadação",
         fotoPrincipal: "albuns/cantina/1.jpeg",
         fotos: [
@@ -151,7 +289,7 @@ const albunsFotos = [
     {
         id: 3,
         titulo: "Retiro - 2025",
-        data: "09-2025",
+        data: "2025-09-01", // CORRIGIDO: formato correto
         descricao: "Diversão e aprendizado na chacara com a galera!",
         fotoPrincipal: "albuns/retiro-2025/1.jpeg",
         fotos: [
@@ -168,6 +306,7 @@ const albunsFotos = [
     {
         id: 4,
         titulo: "Encontro de Aniversariantes",
+        data: "2025-06-01", // ADICIONADO: data
         descricao: "Um dia lindo para comemorar com os aniversariantes do semestre!",
         fotoPrincipal: "albuns/aniversario/1.jpeg",
         fotos: [
@@ -181,6 +320,7 @@ const albunsFotos = [
     {
         id: 5,
         titulo: "Cultos Semanais",
+        data: "2025-03-01", // ADICIONADO: data
         descricao: "Cultos onde estamos sempre reunidos!",
         fotoPrincipal: "albuns/cultos/1.jpeg",
         fotos: [
@@ -207,6 +347,7 @@ const albunsFotos = [
     {
         id: 6,
         titulo: "Congresso - 2025",
+        data: "2025-08-01", // ADICIONADO: data
         descricao: "Nosso congresso 2025, com muito agir do Espírito Santo!",
         fotoPrincipal: "albuns/congresso-2025/1.jpeg",
         fotos: [
@@ -219,6 +360,7 @@ const albunsFotos = [
     {
         id: 7,
         titulo: "Escola Bíblica Dominical",
+        data: "2025-04-01", // ADICIONADO: data
         descricao: "Nossos domingos cheios de aprendizagem e comunhão",
         fotoPrincipal: "albuns/ebd/1.jpeg",
         fotos: [
@@ -233,8 +375,9 @@ const albunsFotos = [
         ]
     },
     {
-        id: 8,
+        id: 8, // ID ÚNICO - era duplicado
         titulo: "Ensaios aos sábados",
+        data: "2025-05-01", // ADICIONADO: data
         descricao: "Nossos sabados de ensaio",
         fotoPrincipal: "albuns/ensaios/1.jpeg",
         fotos: [
@@ -248,17 +391,19 @@ const albunsFotos = [
         ]
     },
     {
-        id: 8,
+        id: 9, // ID ÚNICO - ajustado
         titulo: "Evangelismos",
-        descricao: "Nós dias que saimos para evangelizar",
+        data: "2025-07-01", // ADICIONADO: data
+        descricao: "Nos dias que saimos para evangelizar",
         fotoPrincipal: "albuns/evangelismo/1.jpeg",
         fotos: [
             "albuns/evangelismo/2.jpeg"
         ]
     },
     {
-        id: 9,
+        id: 10, // ID ÚNICO - ajustado
         titulo: "Roles pós culto",
+        data: "2025-10-01", // ADICIONADO: data
         descricao: "Nossos momentos de comunhão e comida pós culto!",
         fotoPrincipal: "albuns/pos culto/1.jpeg",
         fotos: [
@@ -270,7 +415,7 @@ const albunsFotos = [
     }
 ];
 
-// Exportar dados para uso no script principal
+// Exportar dados para uso no script principal - CORRIGIDO
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { eventos, postsBlog, produtos };
+    module.exports = { eventos, postsBlog, produtos, albunsFotos };
 }
