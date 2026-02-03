@@ -64,7 +64,7 @@ const postsBlog = [
         id: 1,
         titulo: "Bem-vindos ao Novo Ano 2026",
         data: "2026-02-04",
-        autor: "Andressa Miotto",
+        autor: "Líderes Hemerson, Eliezer, Veridiana e Jheniffer",
         resumo: "Neste novo ano ministerial, convidamos todos os jovens a se engajarem nas atividades e crescerem juntos na fé.",
         imagem: "albuns/2026.jpeg",
         conteudo: `
@@ -88,7 +88,7 @@ const postsBlog = [
             <p>Que Deus abençoe ricamente nosso ano!</p>
             
             <p>Com carinho,<br>
-            <strong>Andressa Miotto</strong><br>
+            <strong>Líderes Hemerson, Eliezer, Veridiana e Jheniffer</strong><br>
             </p>
         `,
         conteudoExtra: `
@@ -162,58 +162,32 @@ const postsBlog = [
     },
     {
         id: 3,
-        titulo: "Campanha de Doações para o Natal 2026",
-        data: "2026-10-12",
-        autor: "Diácono Pedro",
-        resumo: "Vamos ajudar famílias carentes neste Natal. Participe da nossa campanha de doações.",
-        imagem: "https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        titulo: "Mensagem  dos nossos Líderes",
+        autor: "Liderança",
+        resumo: "Uma mensagem para aquecer o coração",
+        imagem: "albuns/lider.jpeg",
         conteudo: `
-            <p>Queridos jovens, como todos os anos, organizaremos a campanha 'Natal Solidário'.</p>
+            <h4>Líder Hemerson:</h4>
             
-            <h4>Como você pode ajudar:</h4>
+            <p>Jovens, sejam fortes e corajosos:
+            Ao enfrentarmos as dificuldades da vida, devemos lembrar que a verdadeira força espiritual vem de um relacionamento íntimo com Deus, conforme prometido em Filipenses 4:13, onde somos lembrados de que "tudo posso naquele que me fortalece". Portanto, cultivar essa relação e buscar constantemente a orientação divina é essencial para vencer as batalhas espirituais que enfrentamos diariamente, seja assim, estejam sempre firmes e confiantes em Deus.</p>
             
-            <h5>1. Doação de alimentos:</h5>
-            <ul>
-                <li>Arroz (5kg)</li>
-                <li>Feijão (2kg)</li>
-                <li>Açúcar (2kg)</li>
-                <li>Óleo (1L)</li>
-                <li>Leite em pó</li>
-                <li>Biscoitos e massas</li>
-            </ul>
+            <h4>Líder Eliezer:</h4>
+            <p>atualizando</p>
             
-            <h5>2. Doação de brinquedos:</h5>
-            <ul>
-                <li>Brinquedos novos ou em bom estado</li>
-                <li>Para crianças de 0 a 12 anos</li>
-                <li>Bolas, bonecas, carrinhos, jogos educativos</li>
-            </ul>
+            <h4>Líder Veridiana:</h4>
+
+            <p>Jovens, sabemos que muitas são as oportunidades que o mundo oferece lá fora, mas em Cristo somos muito mais que vencedores, os sonhos que estão no papel, só é possível quando temos um Deus que nos guia e faz muito mais do que pedimos ou desejamos. Persevere, continue. O que está por vir é maior do que o que ficou para trás.</p>
             
-            <h5>3. Voluntariado:</h5>
-            <ul>
-                <li>Embalagem das cestas: 15 de dezembro</li>
-                <li>Distribuição: 20 de dezembro</li>
-                <li>Atividades com crianças: durante a distribuição</li>
-            </ul>
+            <h4>Líder Jheniffer:</h4>
+
+            <p>Atualizando</p>
+
             
-            <h4>Pontos de coleta:</h4>
-            <ul>
-                <li>Secretaria da igreja: Segunda a sexta, 14h-18h</li>
-                <li>Salão dos jovens: Sábados, 18h-21h</li>
-                <li>Podemos buscar em sua casa (combinar por WhatsApp)</li>
-            </ul>
-            
-            <p><strong>Meta:</strong> 100 cestas básicas e 200 brinquedos!</p>
-            
-            <p>Para se voluntariar ou mais informações:<br>
-            <strong>WhatsApp:</strong> (11) 99999-9999<br>
-            <strong>Email:</strong> voluntarios@igreja.com</p>
-            
-            <p>"Quem é bondoso para com os pobres empresta ao Senhor, e ele o recompensará." - Provérbios 19:17</p>
+            <h5>“Lembra-te do teu Criador nos dias da tua mocidade…” - Eclesiastes 12:1</h5>
             
             <p>Com gratidão,<br>
-            <strong>Diácono Pedro</strong><br>
-            Coordenador de Ações Sociais</p>
+            <strong>Liderança</strong><br>
         `
     }
 ];
