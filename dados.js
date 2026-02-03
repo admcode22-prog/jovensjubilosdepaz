@@ -233,9 +233,10 @@ const albunsFotos = [
         titulo: "Encontros",
         data: "2025-01-01", // ADICIONADO: data
         descricao: "Momento de comunhão, risadas e boa comida!",
-        fotoPrincipal: "albuns/encontros/2.jpeg",
+        fotoPrincipal: "albuns/encontros/capa.jpeg",
         fotos: [
             "albuns/encontros/1.jpeg",
+            "albuns/encontros/2.jpeg",
             "albuns/encontros/3.jpeg",
             "albuns/encontros/4.jpeg",
             "albuns/encontros/5.jpeg",
@@ -247,8 +248,9 @@ const albunsFotos = [
         titulo: "Cantina",
         data: "2025-02-01", // ADICIONADO: data
         descricao: "Momento de criação de receitas, ajuda na obra e arrecadação",
-        fotoPrincipal: "albuns/cantina/1.jpeg",
+        fotoPrincipal: "albuns/cantina/capa.jpeg",
         fotos: [
+            "albuns/cantina/1.jpeg",
             "albuns/cantina/2.jpeg",
             "albuns/cantina/3.jpeg"
         ]
@@ -258,8 +260,9 @@ const albunsFotos = [
         titulo: "Retiro - 2025",
         data: "2025-09-01", // CORRIGIDO: formato correto
         descricao: "Diversão e aprendizado na chacara com a galera!",
-        fotoPrincipal: "albuns/retiro-2025/1.jpeg",
+        fotoPrincipal: "albuns/retiro-2025/capa.jpeg",
         fotos: [
+            "albuns/retiro-2025/1.jpeg",
             "albuns/retiro-2025/2.jpeg",
             "albuns/retiro-2025/3.jpeg",
             "albuns/retiro-2025/4.jpeg",
@@ -275,8 +278,9 @@ const albunsFotos = [
         titulo: "Encontro de Aniversariantes",
         data: "2025-06-01", // ADICIONADO: data
         descricao: "Um dia lindo para comemorar com os aniversariantes do semestre!",
-        fotoPrincipal: "albuns/aniversario/1.jpeg",
+        fotoPrincipal: "albuns/aniversario/capa.jpeg",
         fotos: [
+            "albuns/aniversario/1.jpeg",
             "albuns/aniversario/2.jpeg",
             "albuns/aniversario/3.jpeg",
             "albuns/aniversario/4.jpeg",
@@ -289,8 +293,9 @@ const albunsFotos = [
         titulo: "Cultos Semanais",
         data: "2025-03-01", // ADICIONADO: data
         descricao: "Cultos onde estamos sempre reunidos!",
-        fotoPrincipal: "albuns/cultos/1.jpeg",
+        fotoPrincipal: "albuns/cultos/capa.jpeg",
         fotos: [
+            "albuns/cultos/1.jpeg",
             "albuns/cultos/2.jpeg",
             "albuns/cultos/3.jpeg",
             "albuns/cultos/4.jpeg",
@@ -316,9 +321,10 @@ const albunsFotos = [
         titulo: "Congresso - 2025",
         data: "2025-08-01", // ADICIONADO: data
         descricao: "Nosso congresso 2025, com muito agir do Espírito Santo!",
-        fotoPrincipal: "albuns/congresso-2025/2.jpeg",
+        fotoPrincipal: "albuns/congresso-2025/caoa.jpeg",
         fotos: [
             "albuns/congresso-2025/1.jpeg",
+            "albuns/congresso-2025/2.jpeg",
             "albuns/congresso-2025/3.jpeg",
             "albuns/congresso-2025/4.jpeg",
             "albuns/congresso-2025/5.jpeg"
@@ -329,8 +335,9 @@ const albunsFotos = [
         titulo: "Escola Bíblica Dominical",
         data: "2025-04-01", // ADICIONADO: data
         descricao: "Nossos domingos cheios de aprendizagem e comunhão",
-        fotoPrincipal: "albuns/ebd/1.jpeg",
+        fotoPrincipal: "albuns/ebd/capa.jpeg",
         fotos: [
+            "albuns/ebd/1.jpeg",
             "albuns/ebd/2.jpeg",
             "albuns/ebd/3.jpeg",
             "albuns/ebd/4.jpeg",
@@ -346,8 +353,9 @@ const albunsFotos = [
         titulo: "Ensaios aos sábados",
         data: "2025-05-01", // ADICIONADO: data
         descricao: "Nossos sabados de ensaio",
-        fotoPrincipal: "albuns/ensaios/1.jpeg",
+        fotoPrincipal: "albuns/ensaios/capa.jpeg",
         fotos: [
+            "albuns/ensaios/1.jpeg",
             "albuns/ensaios/2.jpeg",
             "albuns/ensaios/3.jpeg",
             "albuns/ensaios/4.jpeg",
@@ -362,8 +370,9 @@ const albunsFotos = [
         titulo: "Evangelismos",
         data: "2025-07-01", // ADICIONADO: data
         descricao: "Nos dias que saimos para evangelizar",
-        fotoPrincipal: "albuns/evangelismo/1.jpeg",
+        fotoPrincipal: "albuns/evangelismo/capa.jpeg",
         fotos: [
+            "albuns/evangelismo/1.jpeg",
             "albuns/evangelismo/2.jpeg"
         ]
     },
@@ -372,8 +381,9 @@ const albunsFotos = [
         titulo: "Roles pós culto",
         data: "2025-10-01", // ADICIONADO: data
         descricao: "Nossos momentos de comunhão e comida pós culto!",
-        fotoPrincipal: "albuns/pos culto/1.jpeg",
+        fotoPrincipal: "albuns/pos culto/capa.jpeg",
         fotos: [
+            "albuns/pos culto/1.jpeg",
             "albuns/pos culto/2.jpeg",
             "albuns/pos culto/3.jpeg",
             "albuns/pos culto/4.jpeg",
