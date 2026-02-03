@@ -149,7 +149,7 @@ const postsBlog = [
                 <li>Receba a confirmação por email</li>
             </ol>
             
-            <p><strong>Vagas limitadas!</strong> São apenas 160 vagas disponíveis.</p>
+            <p><strong>Vagas limitadas!</strong> São apenas 60 vagas disponíveis.</p>
             
             <p>Para mais informações: (31) 7557-6657 ou jovens@igreja.com</p>
             
