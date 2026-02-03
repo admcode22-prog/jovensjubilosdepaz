@@ -168,7 +168,6 @@ function carregarProdutos() {
 }
 
 // Inicializar formulários
-// Inicializar formulários
 function initForms() {
     // ⬇️⬇️⬇️ COLE SUA URL DO APPS SCRIPT AQUI ⬇️⬇️⬇️
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKt2rq7hXUfGWuivD8M4yHKW3h0HbMIYB2dd8BzEis9SGnBTYeDbAyPDHOWpA68J3XtA/exec";
@@ -178,6 +177,10 @@ function initForms() {
     if (retiroForm) {
         retiroForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            if (this.classList.contains('enviando')) {
+            return; // Já está enviando, não faz nada
+        }
             
             // Coletar dados
             const dados = {
