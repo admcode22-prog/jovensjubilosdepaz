@@ -6,7 +6,7 @@ const eventos = [
         id: 1,
         titulo: "Ensaio - Jovens",
         data: "2026-02-08",
-        hora: "18:00", // CORRIGIDO: era "60:00"
+        hora: "16:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha ensaiar conosco, ter um momento com Deus!",
         imagem: "https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
