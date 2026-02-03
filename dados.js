@@ -349,9 +349,9 @@ const albunsFotos = [
         titulo: "Congresso - 2025",
         data: "2025-08-01", // ADICIONADO: data
         descricao: "Nosso congresso 2025, com muito agir do Espírito Santo!",
-        fotoPrincipal: "albuns/congresso-2025/1.jpeg",
+        fotoPrincipal: "albuns/congresso-2025/2.jpeg",
         fotos: [
-            "albuns/congresso-2025/2.jpeg",
+            "albuns/congresso-2025/1.jpeg",
             "albuns/congresso-2025/3.jpeg",
             "albuns/congresso-2025/4.jpeg",
             "albuns/congresso-2025/5.jpeg"
