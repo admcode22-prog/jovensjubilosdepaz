@@ -4,33 +4,60 @@
 const eventos = [
     {
         id: 1,
-        titulo: "Ensaio - Jovens",
-        data: "2026-02-08",
-        hora: "16:00",
+        titulo: "Culto - Ensino",
+        data: "2026-02-11",
+        hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
-        descricao: "Venha ensaiar conosco, ter um momento com Deus!",
+        descricao: "Venha aprender mais um pouco da palavra conosco!",
         imagem: "https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         id: 2,
-        titulo: "Culto - Jovens",
-        data: "2026-02-08",
-        hora: "19:30",
+        titulo: "Oração",
+        data: "2026-02-13",
+        hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
-        descricao: "Venha cultuar conosco nesse dia especial. Traga sua Bíblia e um amigo!",
+        descricao: "Venha ter um momento de oração!",
         imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         id: 3,
-        titulo: "Escola Bíblica dominical",
-        data: "2026-02-09",
-        hora: "09:00",
+        titulo: "Ensaio - Jovens",
+        data: "2026-02-15",
+        hora: "16:00",
         local: "Rua Júlia Thereza Bini, 740",
-        descricao: "Venha aprender mais sobre a Bíblia conosco!",
+        descricao: "Venha Ensaiar conosoco, ter um momento de preparação!",
         imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
         id: 4,
+        titulo: "Santa Ceia",
+        data: "2026-02-15",
+        hora: "19:00",
+        local: "Rua Júlia Thereza Bini, 740",
+        descricao: "Venha participar da Santa Ceia do Senhor conosco!",
+        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        id: 5,
+        titulo: "Escola Bíblica Dominical",
+        data: "2026-02-16",
+        hora: "19:00",
+        local: "Rua Júlia Thereza Bini, 740",
+        descricao: "Venha aprender mais da Bíblia!",
+        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        id: 6,
+        titulo: "Culto da família",
+        data: "2026-02-16",
+        hora: "18:45",
+        local: "Rua Júlia Thereza Bini, 740",
+        descricao: "Venha cutuar conosco conosco!",
+        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        id: 7,
         titulo: "Inicio Retiro 2026",
         data: "2026-05-16",
         hora: "08:00",
@@ -39,7 +66,7 @@ const eventos = [
         imagem: "https://images.unsplash.com/photo-1549056572-75914d5d03fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
-        id: 5,
+        id: 8,
         titulo: "Continuação Retiro 2026",
         data: "2026-05-17",
         hora: "08:00",
@@ -48,7 +75,7 @@ const eventos = [
         imagem: "https://images.unsplash.com/photo-1549056572-75914d5d03fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
     },
     {
-        id: 6,
+        id: 9,
         titulo: "Finalização Retiro 2026",
         data: "2026-05-18",
         hora: "08:00",
