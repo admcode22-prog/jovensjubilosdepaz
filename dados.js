@@ -1,11 +1,70 @@
 // ARQUIVO DE DADOS - ATUALIZE AQUI PARA MODIFICAR O CONTEÚDO DO SITE
 
+// ============================================
+// HINO DA SEMANA - ATUALIZE AQUI SEMANALMENTE
+// ============================================
+const hinoSemana = {
+    titulo: "Grande é o Senhor",
+    artista: "Adhemar de Campos",
+    link: "https://www.youtube.com/watch?v=SKS7zkEEqrM",
+    letra: `
+        Letra - CORDEIRO E LEÃO
+
+Existe um nome sobre todo nome 
+E esse nome é poderoso sim, Jesus, Jesus 
+Aquele morreu como Cordeiro, mas ressuscitou como um leão, Jesus 
+Aquele que ali na cruz do meio, liberou o seu perdão, Jesus 
+Aquele que morreu mas ressuscitou e vivo está pra sempre, Jesus 
+
+Oh morte, onde está tua vitória
+Ele ressuscitou, Ele ressuscitou 
+Oh morte, onde está tua vitória
+Ele ressuscitou, Ele ressuscitou 
+
+Aquele morreu como Cordeiro, mas ressuscitou como um leão, Jesus 
+Aquele que ali na cruz do meio, liberou o seu perdão, Jesus 
+Aquele que morreu mas ressuscitou e vivo está pra sempre, Jesus 
+
+Oh morte, onde está tua vitória
+Ele ressuscitou, Ele ressuscitou 
+Oh morte, onde está tua vitória
+Ele ressuscitou, Ele ressuscitou 
+
+Cantamos ao Cordeiro que venceu, Santo, Santo 
+Cantamos ao Cordeiro que venceu, Santo, Santo 
+Cantamos ao Cordeiro que venceu, Santo, Santo 
+
+Que se ouça na terra o mesmo som
+Que os anjos cantam lá no céu
+Santo, Santo, Santo 
+Santo, Santo, Santo 
+
+Oh morte, onde está tua vitória
+Ele ressuscitou, Ele ressuscitou 
+Oh morte, onde está tua vitória
+Ele ressuscitou, Ele ressuscitou
+    `,
+    ativo: true // Mude para false quando não quiser exibir
+};
+
+// ============================================
+// ÚLTIMO EVENTO - ATUALIZE APÓS CADA EVENTO
+// ============================================
+const ultimoEvento = {
+    titulo: "Culto dos Jovens",
+    data: "07 de Fevereiro de 2026",
+    descricao: "Tema: DESPERTAI!",
+    videoUrl: "/videos/ultimovideo.mp4",
+    videoTipo: "local",
+    destaque: "Um momento de louvor, palavra e aprendizado"
+};
+
 // Dados dos eventos (agenda)
 const eventos = [
     {
         id: 1,
         titulo: "Culto - Ensino",
-        data: "2026-02-11",
+        data: "2026-02-18",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha aprender mais um pouco da palavra conosco!",
@@ -13,48 +72,48 @@ const eventos = [
     },
     {
         id: 2,
+        titulo: "Vigilia - Geral da juventude assembleiana do Estado do Paraná",
+        data: "2026-02-18",
+        hora: "22:00",
+        local: "Rua Júlia Thereza Bini, 740",
+        descricao: "Venha participar da vigilia conosco!",
+        imagem: "albuns/vigilia.jpeg"
+    },
+    {
+        id: 3,
         titulo: "Oração",
         data: "2026-02-13",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha ter um momento de oração!",
-        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-        id: 3,
-        titulo: "Ensaio - Jovens",
-        data: "2026-02-15",
-        hora: "16:00",
-        local: "Rua Júlia Thereza Bini, 740",
-        descricao: "Venha Ensaiar conosoco, ter um momento de preparação!",
-        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        imagem: "albuns/cultooracao.jpeg"
     },
     {
         id: 4,
-        titulo: "Santa Ceia",
-        data: "2026-02-15",
-        hora: "19:00",
+        titulo: "Ensaio - Jovens",
+        data: "2026-02-22",
+        hora: "16:00",
         local: "Rua Júlia Thereza Bini, 740",
-        descricao: "Venha participar da Santa Ceia do Senhor conosco!",
-        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        descricao: "Venha Ensaiar conosoco, ter um momento de preparação!",
+        imagem: "albuns/microfone.jpeg"
     },
     {
         id: 5,
         titulo: "Escola Bíblica Dominical",
-        data: "2026-02-16",
+        data: "2026-02-23",
         hora: "19:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha aprender mais da Bíblia!",
-        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        imagem: "albuns/biblia.jpeg"
     },
     {
         id: 6,
         titulo: "Culto da família",
-        data: "2026-02-16",
+        data: "2026-02-23",
         hora: "18:45",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha cutuar conosco conosco!",
-        imagem: "https://images.unsplash.com/photo-1534237710431-e2fc698436d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        imagem: "albuns/familia.jpeg"
     },
     {
         id: 7,
@@ -63,25 +122,7 @@ const eventos = [
         hora: "08:00",
         local: "Fazenda Monte Sião",
         descricao: "Retiro anual dos jovens. Inscrições abertas!",
-        imagem: "https://images.unsplash.com/photo-1549056572-75914d5d03fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-        id: 8,
-        titulo: "Continuação Retiro 2026",
-        data: "2026-05-17",
-        hora: "08:00",
-        local: "Fazenda Monte Sião",
-        descricao: "Retiro anual dos jovens. Inscrições abertas!",
-        imagem: "https://images.unsplash.com/photo-1549056572-75914d5d03fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-    },
-    {
-        id: 9,
-        titulo: "Finalização Retiro 2026",
-        data: "2026-05-18",
-        hora: "08:00",
-        local: "Fazenda Monte Sião",
-        descricao: "Retiro anual dos jovens. Inscrições abertas!",
-        imagem: "https://images.unsplash.com/photo-1549056572-75914d5d03fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        imagem: "albuns/retiro.jpeg"
     }
 ];
 
@@ -258,7 +299,7 @@ const albunsFotos = [
     {
         id: 1,
         titulo: "Encontros",
-        data: "2025-01-01", // ADICIONADO: data
+        data: "2025-01-01",
         descricao: "Momento de comunhão, risadas e boa comida!",
         fotoPrincipal: "albuns/encontros/capa.jpeg",
         fotos: [
@@ -273,7 +314,7 @@ const albunsFotos = [
     {
         id: 2,
         titulo: "Cantina",
-        data: "2025-02-01", // ADICIONADO: data
+        data: "2025-02-01",
         descricao: "Momento de criação de receitas, ajuda na obra e arrecadação",
         fotoPrincipal: "albuns/cantina/capa.jpeg",
         fotos: [
@@ -285,7 +326,7 @@ const albunsFotos = [
     {
         id: 3,
         titulo: "Retiro - 2025",
-        data: "2025-09-01", // CORRIGIDO: formato correto
+        data: "2025-09-01",
         descricao: "Diversão e aprendizado na chacara com a galera!",
         fotoPrincipal: "albuns/retiro-2025/capa.jpeg",
         fotos: [
@@ -303,7 +344,7 @@ const albunsFotos = [
     {
         id: 4,
         titulo: "Encontro de Aniversariantes",
-        data: "2025-06-01", // ADICIONADO: data
+        data: "2025-06-01",
         descricao: "Um dia lindo para comemorar com os aniversariantes do semestre!",
         fotoPrincipal: "albuns/aniversario/capa.jpeg",
         fotos: [
@@ -318,7 +359,7 @@ const albunsFotos = [
     {
         id: 5,
         titulo: "Cultos Semanais",
-        data: "2025-03-01", // ADICIONADO: data
+        data: "2025-03-01",
         descricao: "Cultos onde estamos sempre reunidos!",
         fotoPrincipal: "albuns/cultos/capa.jpeg",
         fotos: [
@@ -346,9 +387,9 @@ const albunsFotos = [
     {
         id: 6,
         titulo: "Congresso - 2025",
-        data: "2025-08-01", // ADICIONADO: data
+        data: "2025-08-01",
         descricao: "Nosso congresso 2025, com muito agir do Espírito Santo!",
-        fotoPrincipal: "albuns/congresso-2025/caoa.jpeg",
+        fotoPrincipal: "albuns/congresso-2025/capa.jpeg",
         fotos: [
             "albuns/congresso-2025/1.jpeg",
             "albuns/congresso-2025/2.jpeg",
@@ -360,7 +401,7 @@ const albunsFotos = [
     {
         id: 7,
         titulo: "Escola Bíblica Dominical",
-        data: "2025-04-01", // ADICIONADO: data
+        data: "2025-04-01",
         descricao: "Nossos domingos cheios de aprendizagem e comunhão",
         fotoPrincipal: "albuns/ebd/capa.jpeg",
         fotos: [
@@ -376,9 +417,9 @@ const albunsFotos = [
         ]
     },
     {
-        id: 8, // ID ÚNICO - era duplicado
+        id: 8,
         titulo: "Ensaios aos sábados",
-        data: "2025-05-01", // ADICIONADO: data
+        data: "2025-05-01",
         descricao: "Nossos sabados de ensaio",
         fotoPrincipal: "albuns/ensaios/capa.jpeg",
         fotos: [
@@ -393,9 +434,9 @@ const albunsFotos = [
         ]
     },
     {
-        id: 9, // ID ÚNICO - ajustado
+        id: 9,
         titulo: "Evangelismos",
-        data: "2025-07-01", // ADICIONADO: data
+        data: "2025-07-01",
         descricao: "Nos dias que saimos para evangelizar",
         fotoPrincipal: "albuns/evangelismo/capa.jpeg",
         fotos: [
@@ -404,9 +445,9 @@ const albunsFotos = [
         ]
     },
     {
-        id: 10, // ID ÚNICO - ajustado
+        id: 10,
         titulo: "Roles pós culto",
-        data: "2025-10-01", // ADICIONADO: data
+        data: "2025-10-01",
         descricao: "Nossos momentos de comunhão e comida pós culto!",
         fotoPrincipal: "albuns/pos culto/capa.jpeg",
         fotos: [
@@ -419,7 +460,7 @@ const albunsFotos = [
     }
 ];
 
-// Exportar dados para uso no script principal - CORRIGIDO
+// Exportar dados para uso no script principal
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { eventos, postsBlog, produtos, albunsFotos };
+    module.exports = { hinoSemana, ultimoEvento, eventos, postsBlog, produtos, albunsFotos };
 }

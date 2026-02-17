@@ -29,6 +29,8 @@ function initMenu() {
 }
 
 // Carregar eventos na agenda
+// Substitua a função carregarEventos() por esta nova versão:
+
 function carregarEventos() {
     const container = document.getElementById('eventsContainer');
     
@@ -39,18 +41,21 @@ function carregarEventos() {
     eventos.forEach(evento => {
         const data = new Date(evento.data);
         const dia = data.getDate().toString().padStart(2, '0');
-        const mes = data.toLocaleDateString('pt-BR', { month: 'short' }).toUpperCase();
+        const mes = data.toLocaleDateString('pt-BR', { month: 'short' }).toUpperCase().replace('.', '');
+        
+        // Usar imagem do evento ou uma imagem padrão
+        const imagemFundo = evento.imagem || 'https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
         
         eventosHTML += `
-            <div class="event-card">
-                <div class="event-date">
-                    <span class="day">${dia}</span>
-                    <span class="month">${mes}</span>
+            <div class="evento-banner" style="background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('${imagemFundo}');">
+                <div class="evento-banner-data">
+                    <span class="dia">${dia}</span>
+                    <span class="mes">${mes}</span>
                 </div>
-                <div class="event-content">
+                <div class="evento-banner-overlay">
                     <h3>${evento.titulo}</h3>
                     <p>${evento.descricao}</p>
-                    <div class="event-meta">
+                    <div class="evento-banner-meta">
                         <span><i class="far fa-clock"></i> ${evento.hora}</span>
                         <span><i class="fas fa-map-marker-alt"></i> ${evento.local}</span>
                     </div>
@@ -622,4 +627,106 @@ window.addEventListener('scroll', function() {
             link.classList.add('active');
         }
     });
+});
+
+// ============================================
+// NOVAS FUNCIONALIDADES
+// ============================================
+
+// Função para abrir foto em tamanho grande (reutiliza o visualizador de álbuns)
+function abrirFoto(fotoUrl) {
+    // Criar um álbum temporário com apenas essa foto
+    const albumTemp = {
+        titulo: "Último Evento",
+        fotos: [fotoUrl]
+    };
+    
+    // Reutilizar o visualizador de álbuns
+    const viewer = document.getElementById('albumViewer');
+    const viewerTitle = document.getElementById('viewerTitle');
+    const viewerMainImage = document.getElementById('viewerMainImage');
+    const viewerThumbnails = document.getElementById('viewerThumbnails');
+    const currentImageIndex = document.getElementById('currentImageIndex');
+    const totalImages = document.getElementById('totalImages');
+    
+    viewerTitle.textContent = albumTemp.titulo;
+    viewerMainImage.src = fotoUrl;
+    currentImageIndex.textContent = '1';
+    totalImages.textContent = '1';
+    
+    viewerThumbnails.innerHTML = `
+        <div class="thumbnail active">
+            <img src="${fotoUrl}" alt="Foto">
+        </div>
+    `;
+    
+    viewer.classList.add('active');
+}
+
+// Funções para o Hino da Semana
+// Modifique a função initHinoSemana para usar o botão do cabeçalho:
+
+function initHinoSemana() {
+    const hinoBtn = document.getElementById('hinoBtnHeader'); // Mudou o ID
+    const hinoModal = document.getElementById('hinoModal');
+    const closeBtn = document.getElementById('closeHinoModal');
+    
+    if (!hinoBtn || !hinoModal || !hinoSemana || !hinoSemana.ativo) return;
+    
+    // Preencher dados do hino
+    document.getElementById('hinoTitulo').textContent = hinoSemana.titulo;
+    document.getElementById('hinoArtista').textContent = hinoSemana.artista;
+    
+    // Carregar vídeo
+    const videoContainer = document.getElementById('hinoVideo');
+    if (hinoSemana.link) {
+        // Converter link normal do YouTube para embed
+        let embedUrl = hinoSemana.link;
+        if (embedUrl.includes('youtube.com/watch?v=')) {
+            embedUrl = embedUrl.replace('watch?v=', 'embed/');
+        } else if (embedUrl.includes('youtu.be/')) {
+            embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
+        }
+        videoContainer.innerHTML = `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+    }
+    
+    // Carregar letra
+    document.getElementById('hinoLetra').innerHTML = hinoSemana.letra.replace(/\n/g, '<br>');
+    
+    // Abrir modal
+    hinoBtn.addEventListener('click', () => {
+        hinoModal.classList.add('active');
+    });
+    
+    // Fechar modal
+    closeBtn.addEventListener('click', () => {
+        hinoModal.classList.remove('active');
+    });
+    
+    // Fechar ao clicar fora
+    hinoModal.addEventListener('click', (e) => {
+        if (e.target === hinoModal) {
+            hinoModal.classList.remove('active');
+        }
+    });
+    
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && hinoModal.classList.contains('active')) {
+            hinoModal.classList.remove('active');
+        }
+    });
+}
+
+// Atualizar a função principal DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar todas as funcionalidades
+    initMenu();
+    initCarrossel();
+    carregarEventos();
+    carregarBlog();
+    carregarProdutos();
+    initHinoSemana();       // NOVO
+    initForms();
+    initSmoothScroll();
 });
