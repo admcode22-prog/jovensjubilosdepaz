@@ -82,7 +82,7 @@ const eventos = [
     {
         id: 3,
         titulo: "Oração",
-        data: "2026-02-13",
+        data: "2026-02-20",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha ter um momento de oração!",
