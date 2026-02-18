@@ -6,7 +6,6 @@
 const hinoSemana = {
     titulo: "Cordeiro e Leão",
     artista: "Jefferson e Suellen",
-    link: "https://www.youtube.com/watch?v=SKS7zkEEqrM",
     letra: `
         Letra - CORDEIRO E LEÃO
 
