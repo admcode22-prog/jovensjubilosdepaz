@@ -1,19 +1,24 @@
 // FUNCIONALIDADES PRINCIPAIS DO SITE
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar todas as funcionalidades
+    console.log('📄 Página carregada');
     initMenu();
+    initCarrossel();
     carregarEventos();
     carregarBlog();
     carregarProdutos();
+    initHinosSemana();  // <--- TEM QUE TER ESTA LINHA
     initForms();
     initSmoothScroll();
+    console.log('✅ Todas funções chamadas');
 });
 
 // Menu responsivo
 function initMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.querySelector('.nav-menu');
+    
+    if (!menuToggle || !navMenu) return;
     
     menuToggle.addEventListener('click', function() {
         navMenu.classList.toggle('show');
@@ -29,8 +34,6 @@ function initMenu() {
 }
 
 // Carregar eventos na agenda
-// Substitua a função carregarEventos() por esta nova versão:
-
 function carregarEventos() {
     const container = document.getElementById('eventsContainer');
     
@@ -43,7 +46,6 @@ function carregarEventos() {
         const dia = data.getDate().toString().padStart(2, '0');
         const mes = data.toLocaleDateString('pt-BR', { month: 'short' }).toUpperCase().replace('.', '');
         
-        // Usar imagem do evento ou uma imagem padrão
         const imagemFundo = evento.imagem || 'https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
         
         eventosHTML += `
@@ -101,7 +103,6 @@ function carregarBlog() {
     
     container.innerHTML = blogHTML;
     
-    // Adicionar eventos para abrir posts
     document.querySelectorAll('.btn-ler-mais').forEach(btn => {
         btn.addEventListener('click', function() {
             const postId = parseInt(this.getAttribute('data-post-id'));
@@ -119,7 +120,6 @@ function abrirPostCompleto(postId) {
     const data = new Date(post.data);
     const dataFormatada = data.toLocaleDateString('pt-BR');
     
-    // Preencher modal com dados do post
     document.getElementById('modalTitle').textContent = post.titulo;
     document.getElementById('modalMeta').innerHTML = `
         <span><i class="far fa-user"></i> ${post.autor}</span>
@@ -132,22 +132,18 @@ function abrirPostCompleto(postId) {
         ${post.conteudoExtra || ''}
     `;
     
-    // Mostrar modal
     modal.classList.add('active');
     
-    // Fechar modal
     document.getElementById('closeModal').onclick = () => {
         modal.classList.remove('active');
     };
     
-    // Fechar ao clicar fora
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.classList.remove('active');
         }
     });
     
-    // Fechar com ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             modal.classList.remove('active');
@@ -194,7 +190,6 @@ function carregarProdutos() {
     
     container.innerHTML = produtosHTML;
     
-    // Adicionar eventos para seleção de tamanhos
     document.querySelectorAll('.size-option').forEach(option => {
         option.addEventListener('click', function() {
             document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
@@ -202,13 +197,11 @@ function carregarProdutos() {
         });
     });
     
-    // Adicionar eventos para botões de compra
     document.querySelectorAll('.btn-comprar').forEach(btn => {
         btn.addEventListener('click', function() {
             const produtoId = this.getAttribute('data-id');
             const produto = produtos.find(p => p.id == produtoId);
             
-            // Verificar se um tamanho foi selecionado
             const tamanhoSelecionado = this.parentElement.querySelector('.size-option.selected');
             
             if (!tamanhoSelecionado) {
@@ -218,7 +211,6 @@ function carregarProdutos() {
             
             const tamanho = tamanhoSelecionado.getAttribute('data-size');
             
-            // Simular processo de compra
             const confirmacao = confirm(`Você está comprando: ${produto.nome}\nTamanho: ${tamanho}\nValor: R$ ${produto.preco.toFixed(2)}\n\nDeseja continuar?`);
             
             if (confirmacao) {
@@ -230,7 +222,6 @@ function carregarProdutos() {
 
 // Inicializar formulários
 function initForms() {
-    // ⬇️⬇️⬇️ COLE SUA URL DO APPS SCRIPT AQUI ⬇️⬇️⬇️
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKt2rq7hXUfGWuivD8M4yHKW3h0HbMIYB2dd8BzEis9SGnBTYeDbAyPDHOWpA68J3XtA/exec";
     
     // Formulário de inscrição no retiro
@@ -240,10 +231,9 @@ function initForms() {
             e.preventDefault();
 
             if (this.classList.contains('enviando')) {
-            return; // Já está enviando, não faz nada
-        }
+                return;
+            }
             
-            // Coletar dados
             const dados = {
                 nome: document.getElementById('nome').value,
                 email: document.getElementById('email').value,
@@ -253,41 +243,33 @@ function initForms() {
                 observacoes: document.getElementById('observacoes').value || ''
             };
             
-            // Validação
             if (!dados.nome || !dados.email || !dados.telefone || !dados.idade || !dados.acomodacao) {
                 mostrarMensagem('retiroMessage', 'Por favor, preencha todos os campos obrigatórios.', 'error');
                 return;
             }
             
-            // Mostrar carregamento
             const botao = retiroForm.querySelector('button[type="submit"]');
             const textoOriginal = botao.textContent;
             botao.textContent = 'Enviando...';
             botao.disabled = true;
             
             try {
-                // Enviar para Google Sheets via Apps Script
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(dados)
                 });
                 
-                // Sucesso
                 mostrarMensagem('retiroMessage', 
-                    '✅ Inscrição enviada com sucesso! Em breve entraremos em contato para confirmar.', 
+                    '✅ Inscrição enviada com sucesso! Em breve entraremos em contato.', 
                     'success');
                 
-                // Limpar formulário
                 retiroForm.reset();
                 
             } catch (error) {
-                // Fallback se der erro na conexão
                 mostrarMensagem('retiroMessage', 
-                    '✅ Inscrição salva localmente! (O sistema de confirmação pode estar temporariamente indisponível)', 
+                    '✅ Inscrição salva localmente!', 
                     'success');
                 console.log('Dados da inscrição (fallback):', dados);
             } finally {
@@ -313,7 +295,6 @@ function initForms() {
                 return;
             }
             
-            // Simular envio
             mostrarMensagem('contactMessage', 'Mensagem enviada com sucesso! Responderemos em breve.', 'success');
             contactForm.reset();
             
@@ -334,7 +315,6 @@ function initForms() {
                 return;
             }
             
-            // Simular inscrição
             alert(`Obrigado por se inscrever na nossa newsletter! Um e-mail de confirmação foi enviado para ${email}.`);
             newsletterForm.reset();
             
@@ -349,7 +329,6 @@ function mostrarMensagem(elementId, texto, tipo) {
     elemento.textContent = texto;
     elemento.className = `form-message ${tipo}`;
     
-    // Limpar mensagem após 5 segundos
     setTimeout(() => {
         elemento.className = 'form-message';
         elemento.textContent = '';
@@ -368,7 +347,6 @@ function initCarrossel() {
     let currentSlide = 0;
     const slidesPerView = getSlidesPerView();
     
-    // Criar cards dos álbuns
     let albumsHTML = '';
     let dotsHTML = '';
     
@@ -404,10 +382,8 @@ function initCarrossel() {
     carouselTrack.innerHTML = albumsHTML;
     carouselDots.innerHTML = dotsHTML;
     
-    // Configurar largura do track
     updateTrackWidth();
     
-    // Event listeners para navegação
     prevBtn.addEventListener('click', () => {
         if (currentSlide > 0) {
             currentSlide--;
@@ -423,7 +399,6 @@ function initCarrossel() {
         }
     });
     
-    // Event listeners para dots
     document.querySelectorAll('.carousel-dot').forEach(dot => {
         dot.addEventListener('click', () => {
             currentSlide = parseInt(dot.getAttribute('data-slide'));
@@ -431,7 +406,6 @@ function initCarrossel() {
         });
     });
     
-    // Event listeners para abrir álbuns
     document.querySelectorAll('.album-card').forEach(card => {
         card.addEventListener('click', () => {
             const albumId = parseInt(card.getAttribute('data-album-id'));
@@ -439,7 +413,6 @@ function initCarrossel() {
         });
     });
     
-    // Atualizar carrossel ao redimensionar a janela
     window.addEventListener('resize', () => {
         updateTrackWidth();
         updateCarousel();
@@ -452,7 +425,6 @@ function initCarrossel() {
         
         carouselTrack.style.width = `${(totalSlides * 100) / slidesPerView}%`;
         
-        // Atualizar largura dos slides
         document.querySelectorAll('.album-card').forEach(slide => {
             slide.style.flex = `0 0 ${slideWidth}%`;
         });
@@ -465,12 +437,10 @@ function initCarrossel() {
         
         carouselTrack.style.transform = `translateX(${translateX}%)`;
         
-        // Atualizar dots ativos
         document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
             dot.classList.toggle('active', index === currentSlide);
         });
         
-        // Atualizar estado dos botões
         const maxSlide = Math.ceil(albunsFotos.length / slidesPerView) - 1;
         prevBtn.disabled = currentSlide === 0;
         nextBtn.disabled = currentSlide === maxSlide;
@@ -482,7 +452,6 @@ function initCarrossel() {
         return 1;
     }
     
-    // Inicializar carrossel
     updateCarousel();
 }
 
@@ -498,23 +467,16 @@ function openAlbumViewer(albumId) {
     const currentImageIndex = document.getElementById('currentImageIndex');
     const totalImages = document.getElementById('totalImages');
     
-    // Configurar título
     viewerTitle.textContent = album.titulo;
-    
-    // Configurar contador
     totalImages.textContent = album.fotos.length;
     
-    // Estado do visualizador
     let currentImage = 0;
     
-    // Carregar imagens
     function loadImages() {
-        // Imagem principal
         viewerMainImage.src = album.fotos[currentImage];
         viewerMainImage.alt = `${album.titulo} - Foto ${currentImage + 1}`;
         currentImageIndex.textContent = currentImage + 1;
         
-        // Miniaturas
         let thumbnailsHTML = '';
         album.fotos.forEach((foto, index) => {
             thumbnailsHTML += `
@@ -526,7 +488,6 @@ function openAlbumViewer(albumId) {
         });
         viewerThumbnails.innerHTML = thumbnailsHTML;
         
-        // Event listeners para miniaturas
         document.querySelectorAll('.thumbnail').forEach(thumb => {
             thumb.addEventListener('click', () => {
                 currentImage = parseInt(thumb.getAttribute('data-index'));
@@ -537,7 +498,6 @@ function openAlbumViewer(albumId) {
     
     loadImages();
     
-    // Botões de navegação
     const prevImageBtn = document.getElementById('prevImageBtn');
     const nextImageBtn = document.getElementById('nextImageBtn');
     const closeViewer = document.getElementById('closeViewer');
@@ -560,7 +520,6 @@ function openAlbumViewer(albumId) {
         viewer.classList.remove('active');
     };
     
-    // Fechar com ESC
     document.addEventListener('keydown', function closeOnEsc(e) {
         if (e.key === 'Escape') {
             viewer.classList.remove('active');
@@ -568,21 +527,8 @@ function openAlbumViewer(albumId) {
         }
     });
     
-    // Mostrar visualizador
     viewer.classList.add('active');
 }
-
-// Atualizar a função init() para incluir o carrossel
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar todas as funcionalidades
-    initMenu();
-    initCarrossel();  // ← Adicionar esta linha
-    carregarEventos();
-    carregarBlog();
-    carregarProdutos();
-    initForms();
-    initSmoothScroll();
-});
 
 // Rolagem suave para âncoras
 function initSmoothScroll() {
@@ -630,18 +576,15 @@ window.addEventListener('scroll', function() {
 });
 
 // ============================================
-// NOVAS FUNCIONALIDADES
+// FUNÇÃO DO HINO DA SEMANA (MÚLTIPLOS HINOS)
 // ============================================
 
-// Função para abrir foto em tamanho grande (reutiliza o visualizador de álbuns)
 function abrirFoto(fotoUrl) {
-    // Criar um álbum temporário com apenas essa foto
     const albumTemp = {
         titulo: "Último Evento",
         fotos: [fotoUrl]
     };
     
-    // Reutilizar o visualizador de álbuns
     const viewer = document.getElementById('albumViewer');
     const viewerTitle = document.getElementById('viewerTitle');
     const viewerMainImage = document.getElementById('viewerMainImage');
@@ -663,70 +606,165 @@ function abrirFoto(fotoUrl) {
     viewer.classList.add('active');
 }
 
-// Funções para o Hino da Semana
-// Modifique a função initHinoSemana para usar o botão do cabeçalho:
-
-function initHinoSemana() {
-    const hinoBtn = document.getElementById('hinoBtnHeader'); // Mudou o ID
+// FUNÇÃO PRINCIPAL DO HINO (MÚLTIPLOS HINOS)
+function initHinosSemana() {
+    console.log('🚀 FUNÇÃO INIT HINOS INICIOU');
+    
+    const hinoBtn = document.getElementById('hinoBtnHeader');
     const hinoModal = document.getElementById('hinoModal');
     const closeBtn = document.getElementById('closeHinoModal');
     
-    if (!hinoBtn || !hinoModal || !hinoSemana || !hinoSemana.ativo) return;
+    console.log('🔍 Botão encontrado:', hinoBtn);
+    console.log('🔍 Modal encontrado:', hinoModal);
+    console.log('🔍 Hinos disponíveis:', hinosDisponiveis);
     
-    // Preencher dados do hino
-    document.getElementById('hinoTitulo').textContent = hinoSemana.titulo;
-    document.getElementById('hinoArtista').textContent = hinoSemana.artista;
-    
-    // Carregar vídeo
-    const videoContainer = document.getElementById('hinoVideo');
-    if (hinoSemana.link) {
-        // Converter link normal do YouTube para embed
-        let embedUrl = hinoSemana.link;
-        if (embedUrl.includes('youtube.com/watch?v=')) {
-            embedUrl = embedUrl.replace('watch?v=', 'embed/');
-        } else if (embedUrl.includes('youtu.be/')) {
-            embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
-        }
-        videoContainer.innerHTML = `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+    if (!hinosDisponiveis || hinosDisponiveis.length === 0) {
+        console.log('Nenhum hino disponível');
+        if (hinoBtn) hinoBtn.style.display = 'none';
+        return;
     }
     
-    // Carregar letra
-    document.getElementById('hinoLetra').innerHTML = hinoSemana.letra.replace(/\n/g, '<br>');
+    if (!hinoBtn) {
+        console.log('❌ Botão NÃO encontrado!');
+        return;
+    }
     
-    // Abrir modal
-    hinoBtn.addEventListener('click', () => {
+    if (!hinoModal) {
+        console.log('❌ Modal NÃO encontrado!');
+        return;
+    }
+    
+    // Mostra o botão
+    hinoBtn.style.display = 'flex';
+    console.log('✅ Botão está visível');
+    
+    // Variável para controlar o hino atual
+    let hinoAtual = 0;
+    
+    // Função para carregar um hino específico
+    function carregarHino(index) {
+        console.log('Carregando hino:', index);
+        const hino = hinosDisponiveis[index];
+        
+        // Títulos
+        const tituloEl = document.getElementById('hinoTitulo');
+        const artistaEl = document.getElementById('hinoArtista');
+        if (tituloEl) tituloEl.textContent = hino.titulo;
+        if (artistaEl) artistaEl.textContent = hino.artista;
+        
+        // Observação
+        const headerEl = document.querySelector('.hino-modal-header');
+        if (headerEl) {
+            let obsEl = document.getElementById('hinoObservacao');
+            if (!obsEl) {
+                obsEl = document.createElement('p');
+                obsEl.id = 'hinoObservacao';
+                obsEl.style.fontSize = '0.9rem';
+                obsEl.style.marginTop = '5px';
+                obsEl.style.opacity = '0.8';
+                headerEl.appendChild(obsEl);
+            }
+            obsEl.innerHTML = `<i class="far fa-calendar-alt"></i> ${hino.observacao || hino.data}`;
+        }
+        
+        // Vídeo
+        const videoContainer = document.getElementById('hinoVideo');
+        if (videoContainer && hino.link) {
+            let embedUrl = hino.link;
+            if (embedUrl.includes('youtube.com/watch?v=')) {
+                embedUrl = embedUrl.replace('watch?v=', 'embed/');
+            } else if (embedUrl.includes('youtu.be/')) {
+                embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
+            }
+            videoContainer.innerHTML = `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+        }
+        
+        // Letra
+        const letraEl = document.getElementById('hinoLetra');
+        if (letraEl) {
+            letraEl.innerHTML = hino.letra.replace(/\n/g, '<br>');
+        }
+        
+        // Contador
+        if (hinosDisponiveis.length > 1) {
+            let counterEl = document.getElementById('hinoCounter');
+            if (!counterEl) {
+                counterEl = document.createElement('div');
+                counterEl.id = 'hinoCounter';
+                counterEl.style.textAlign = 'center';
+                counterEl.style.marginTop = '10px';
+                counterEl.style.padding = '10px';
+                counterEl.style.borderTop = '1px solid #eee';
+                const bodyEl = document.querySelector('.hino-modal-body');
+                if (bodyEl) bodyEl.appendChild(counterEl);
+            }
+            if (counterEl) {
+                counterEl.innerHTML = `
+                    <button class="btn-hino-nav" id="prevHino" ${index === 0 ? 'disabled' : ''}>
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <span style="margin: 0 15px;">${index + 1} de ${hinosDisponiveis.length}</span>
+                    <button class="btn-hino-nav" id="nextHino" ${index === hinosDisponiveis.length - 1 ? 'disabled' : ''}>
+                        Próximo <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+                
+                // Remover eventos antigos e adicionar novos
+                setTimeout(() => {
+                    const prevBtn = document.getElementById('prevHino');
+                    const nextBtn = document.getElementById('nextHino');
+                    
+                    if (prevBtn) {
+                        prevBtn.onclick = () => {
+                            if (hinoAtual > 0) {
+                                hinoAtual--;
+                                carregarHino(hinoAtual);
+                            }
+                        };
+                    }
+                    
+                    if (nextBtn) {
+                        nextBtn.onclick = () => {
+                            if (hinoAtual < hinosDisponiveis.length - 1) {
+                                hinoAtual++;
+                                carregarHino(hinoAtual);
+                            }
+                        };
+                    }
+                }, 100);
+            }
+        }
+    }
+    
+    // Carregar primeiro hino
+    carregarHino(0);
+    
+    // Abrir modal - REMOVER eventos antigos antes de adicionar novo
+    hinoBtn.onclick = function() {
+        console.log('🎵 BOTÃO CLICADO!');
         hinoModal.classList.add('active');
-    });
+    };
     
     // Fechar modal
-    closeBtn.addEventListener('click', () => {
-        hinoModal.classList.remove('active');
-    });
+    if (closeBtn) {
+        closeBtn.onclick = function() {
+            hinoModal.classList.remove('active');
+        };
+    }
     
     // Fechar ao clicar fora
-    hinoModal.addEventListener('click', (e) => {
+    hinoModal.onclick = function(e) {
         if (e.target === hinoModal) {
             hinoModal.classList.remove('active');
         }
-    });
+    };
     
     // Fechar com ESC
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && hinoModal.classList.contains('active')) {
             hinoModal.classList.remove('active');
         }
     });
+    
+    console.log('✅ Função initHinosSemana completa!');
 }
-
-// Atualizar a função principal DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar todas as funcionalidades
-    initMenu();
-    initCarrossel();
-    carregarEventos();
-    carregarBlog();
-    carregarProdutos();
-    initHinoSemana();       // NOVO
-    initForms();
-    initSmoothScroll();
-});

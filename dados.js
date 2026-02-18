@@ -1,51 +1,123 @@
 // ARQUIVO DE DADOS - ATUALIZE AQUI PARA MODIFICAR O CONTEÚDO DO SITE
 
 // ============================================
-// HINO DA SEMANA - ATUALIZE AQUI SEMANALMENTE
+// HINOS DA SEMANA - ADICIONE VÁRIOS HINOS AQUI
 // ============================================
-const hinoSemana = {
-    titulo: "Cordeiro e Leão",
-    artista: "Jefferson e Suellen",
-    link: "https://www.youtube.com/watch?v=SKS7zkEEqrM",
-    letra: `
-        Letra - CORDEIRO E LEÃO
+const hinosSemana = [
+    {
+        id: 1,
+        titulo: "Quando ele vem",
+        artista: "André Aquino",
+        link: "https://www.youtube.com/watch?v=p3Raz8HuDjU",
+        data: "2026-02-23",
+        observacao: "Hino do sábado - 23/02/2026",
+        letra: `
+Letra - QUANDO ELE VEM
 
-Existe um nome sobre todo nome 
-E esse nome é poderoso sim, Jesus, Jesus 
-Aquele morreu como Cordeiro, mas ressuscitou como um leão, Jesus 
-Aquele que ali na cruz do meio, liberou o seu perdão, Jesus 
-Aquele que morreu mas ressuscitou e vivo está pra sempre, Jesus 
+Nosso amigo Santo Espírito
+Venha aquecer os corações
+Vem com cura e todo Seu poder
+Vem manifestar os Seus sinais
 
-Oh morte, onde está tua vitória
-Ele ressuscitou, Ele ressuscitou 
-Oh morte, onde está tua vitória
-Ele ressuscitou, Ele ressuscitou 
+O que dizer?
+O Que fazer quando Ele vem aqui?
+Mais que ser bem-vindo
+Nós Te desejamos outra vez aqui
 
-Aquele morreu como Cordeiro, mas ressuscitou como um leão, Jesus 
-Aquele que ali na cruz do meio, liberou o seu perdão, Jesus 
-Aquele que morreu mas ressuscitou e vivo está pra sempre, Jesus 
+Nosso amigo Santo Espírito
+Esperamos pelo Seu soprar
+Com Seu óleo venha nos ungir
+e com Seu fogo vem nos batizar
 
-Oh morte, onde está tua vitória
-Ele ressuscitou, Ele ressuscitou 
-Oh morte, onde está tua vitória
-Ele ressuscitou, Ele ressuscitou 
+O que dizer?
+O Que fazer quando Ele vem aqui?
+Mais que ser bem-vindo
+Nós Te desejamos outra vez aqui
 
-Cantamos ao Cordeiro que venceu, Santo, Santo 
-Cantamos ao Cordeiro que venceu, Santo, Santo 
-Cantamos ao Cordeiro que venceu, Santo, Santo 
+Faz de novo
+Faz de novo
+O Teu povo clama a Ti
 
-Que se ouça na terra o mesmo som
-Que os anjos cantam lá no céu
-Santo, Santo, Santo 
-Santo, Santo, Santo 
+O que dizer?
+O Que fazer quando Ele vem aqui?
+Mais que ser bem-vindo
+Nós Te desejamos outra vez aqui
+        `,
+        ativo: true
+    },
+    {
+        id: 2,
+        titulo: "Deus dos Deuses",
+        artista: "Lauriete",
+        link: "https://www.youtube.com/watch?v=dKT91t7_TRc&list=RDdKT91t7_TRc&start_radio=1",
+        data: "2026-02-24",
+        observacao: "Hino do domingo - 24/02/2026",
+        letra: `
+Letra - DEUS DOS DEUSES
 
-Oh morte, onde está tua vitória
-Ele ressuscitou, Ele ressuscitou 
-Oh morte, onde está tua vitória
-Ele ressuscitou, Ele ressuscitou
-    `,
-    ativo: true // Mude para false quando não quiser exibir
-};
+Existe um Deus no céu
+Que a letra no papel não pode descrever
+Não dá pra imaginar
+Não dá pra comparar o Seu grande poder
+Ele faz o que Ele quer
+O soberano e forte até o infinito
+Ganha a luta sem lutar
+Vence a luta e faz cansar o inimigo
+Jeová
+Deus de vida, de vitória
+Jeová
+Deus de paz, Deus de glória
+Jeová
+Vai mudar a tua história
+Hoje aqui
+(Hoje aqui)
+Quando Deus quer fazer, ninguém pode parar
+Quando manda mensagem faz profeta entregar
+Faz a nuvem descer, faz a água subir
+E se Ele soprar faz o inferno explodir
+Ele sempre resolve sem ter reunião
+Pega o homem sem Deus e derrama unção
+O seu braço é capaz de parar um trovão
+Este é o Deus dos deuses, meu irmão
+Ele faz o que Ele quer
+O soberano e forte até o infinito (até o infinito)
+Ganha a luta sem lutar
+Vence a luta e faz cansar o inimigo
+Jeová
+Deus de vida, de vitória
+Jeová
+Deus de paz, Deus de glória
+Jeová
+Vai mudar a tua história
+Hoje aqui
+(Hoje aqui)
+Quando Deus quer fazer, ninguém pode parar
+Quando manda mensagem faz profeta entregar
+Faz a nuvem descer, faz a água subir
+E se Ele soprar faz o inferno explodir
+Ele sempre resolve sem ter reunião
+Pega o homem sem Deus e derrama unção
+O seu braço é capaz de parar um trovão
+Este é o Deus dos deuses
+Quando Deus quer fazer, ninguém pode parar
+Quando manda mensagem faz profeta entregar
+Faz a nuvem descer, faz a água subir
+E se Ele soprar faz o inferno explodir
+Ele sempre resolve sem ter reunião
+Pega o homem sem Deus e derrama unção
+O seu braço é capaz de parar um trovão
+Este é o Deus dos deuses, meu irmão
+Este é o Deus dos deuses
+(Deus dos deuses)
+Este é o Deus dos deuses
+Oh, meu irmão
+        `,
+        ativo: true
+    }
+];
+
+// Lista completa de hinos ativos
+const hinosDisponiveis = hinosSemana.filter(hino => hino.ativo === true);
 
 // ============================================
 // ÚLTIMO EVENTO - ATUALIZE APÓS CADA EVENTO
@@ -126,7 +198,7 @@ const eventos = [
     }
 ];
 
-// Dados do blog (recados) - APENAS UMA VEZ!
+// Dados do blog (recados)
 const postsBlog = [
     {
         id: 1,
@@ -209,14 +281,6 @@ const postsBlog = [
             
             <p><strong>Incluso:</strong> Todas as refeições, hospedagem, materiais e transporte (ida e volta).</p>
             
-            <h5>Como se inscrever:</h5>
-            <ol>
-                <li>Preencha o formulário de inscrição no nosso site</li>
-                <li>Faça o pagamento via PIX para garantir sua vaga</li>
-                <li>Envie o comprovante para nosso WhatsApp</li>
-                <li>Receba a confirmação por email</li>
-            </ol>
-            
             <p><strong>Vagas limitadas!</strong> São apenas 60 vagas disponíveis.</p>
             
             <p>Para mais informações: (31) 7557-6657 ou jovens@igreja.com</p>
@@ -230,7 +294,8 @@ const postsBlog = [
     },
     {
         id: 3,
-        titulo: "Mensagem  dos nossos Líderes",
+        titulo: "Mensagem dos nossos Líderes",
+        data: "2026-02-15",
         autor: "Liderança",
         resumo: "Uma mensagem para aquecer o coração",
         imagem: "albuns/lider.jpeg",
@@ -294,7 +359,7 @@ const produtos = [
     }
 ];
 
-// Dados dos álbuns de fotos - IDs CORRETOS E ÚNICOS
+// Dados dos álbuns de fotos
 const albunsFotos = [
     {
         id: 1,
@@ -462,5 +527,5 @@ const albunsFotos = [
 
 // Exportar dados para uso no script principal
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { hinoSemana, ultimoEvento, eventos, postsBlog, produtos, albunsFotos };
+    module.exports = { hinosDisponiveis, ultimoEvento, eventos, postsBlog, produtos, albunsFotos };
 }
