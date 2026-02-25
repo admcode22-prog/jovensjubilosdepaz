@@ -1,118 +1,268 @@
 // FUNCIONALIDADES PRINCIPAIS DO SITE
-
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('📄 Página carregada');
+    console.log('📱 Site carregado - Versão Mobile');
     initMenu();
-    initCarrossel();
+    carregarEventoPrincipal();
+    carregarAniversariantes();
+    carregarAlbuns();
     carregarEventos();
     carregarBlog();
-    carregarProdutos();
-    initHinosSemana();  // <--- TEM QUE TER ESTA LINHA
+    carregarRetiro();
+    initHinosSemana();
     initForms();
     initSmoothScroll();
-    console.log('✅ Todas funções chamadas');
 });
 
-// Menu responsivo
+// MENU RESPONSIVO
 function initMenu() {
     const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const navMenu = document.getElementById('navMenu');
     
-    if (!menuToggle || !navMenu) return;
-    
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('show');
-    });
-    
-    // Fechar menu ao clicar em um link
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('show');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
         });
-    });
+        
+        // Fecha menu ao clicar em link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
+        });
+    }
 }
 
-// Carregar eventos na agenda
-function carregarEventos() {
-    const container = document.getElementById('eventsContainer');
+// CARREGAR EVENTO PRINCIPAL - SOMENTE FOTO
+function carregarEventoPrincipal() {
+    const container = document.getElementById('eventoPrincipalContainer');
+    if (!container || !eventoPrincipal) return;
     
-    if (!container) return;
+    const imagemFundo = eventoPrincipal.imagem || 'https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
     
-    let eventosHTML = '';
-    
-    eventos.forEach(evento => {
-        const data = new Date(evento.data);
-        const dia = data.getDate().toString().padStart(2, '0');
-        const mes = data.toLocaleDateString('pt-BR', { month: 'short' }).toUpperCase().replace('.', '');
-        
-        const imagemFundo = evento.imagem || 'https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80';
-        
-        eventosHTML += `
-            <div class="evento-banner" style="background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('${imagemFundo}');">
-                <div class="evento-banner-data">
-                    <span class="dia">${dia}</span>
-                    <span class="mes">${mes}</span>
+    container.innerHTML = `
+        <div class="evento-principal-card" style="background-image: url('${imagemFundo}');">
+            <div class="evento-principal-conteudo">
+                <span class="evento-principal-badge"><i class="fas fa-star"></i> PRÓXIMO EVENTO</span>
+                <h3>CULTO DOS JOVENS</h3>
+                
+                <div class="evento-principal-info">
+                    <p><i class="fas fa-calendar-alt"></i> 07 de Março de 2026</p>
+                    <p><i class="fas fa-clock"></i> 19:30</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rua Júlia Thereza Bini, 740</p>
                 </div>
-                <div class="evento-banner-overlay">
-                    <h3>${evento.titulo}</h3>
-                    <p>${evento.descricao}</p>
-                    <div class="evento-banner-meta">
-                        <span><i class="far fa-clock"></i> ${evento.hora}</span>
-                        <span><i class="fas fa-map-marker-alt"></i> ${evento.local}</span>
+                
+                <p class="evento-principal-descricao">
+                    <strong>Tema:</strong> E onde está o Espírito do Senhor, ai há liberdade! - Preparem seus corações!<br>
+                    <span class="evento-principal-data-destaque">07/03</span>
+                </p>
+                
+                <div class="evento-principal-chamada">
+                    <i class="fas fa-bell"></i> Um culto especial com louvor, palavra e muito mais. Traga sua família e amigos!
+                </div>
+                
+                <button class="evento-principal-btn" onclick="alert('Presença confirmada! Nos vemos lá!')">
+                    <i class="fas fa-check-circle"></i> Confirmar presença
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// CARREGAR ANIVERSARIANTES
+function carregarAniversariantes() {
+    const container = document.getElementById('aniversariantesContainer');
+    if (!container || !aniversariantesSemana) return;
+    
+    let html = '';
+    
+    aniversariantesSemana.sort((a, b) => new Date(a.data) - new Date(b.data)).forEach(aniversariante => {
+        const data = new Date(aniversariante.data);
+        const dataFormatada = data.toLocaleDateString('pt-BR', { 
+            weekday: 'long', 
+            day: '2-digit', 
+            month: '2-digit' 
+        });
+        
+        html += `
+            <div class="aniversariante-card">
+                <img src="${aniversariante.foto}" alt="${aniversariante.nome}" class="aniversariante-foto" onerror="this.src='https://via.placeholder.com/300x200?text=Sem+Foto'">
+                <div class="aniversariante-info">
+                    <h3>${aniversariante.nome}</h3>
+                    <p>${aniversariante.idade} anos</p>
+                    <div class="aniversariante-data">
+                        <i class="fas fa-birthday-cake"></i>
+                        ${dataFormatada}
                     </div>
                 </div>
             </div>
         `;
     });
     
-    container.innerHTML = eventosHTML;
+    if (aniversariantesSemana.length === 0) {
+        html = '<p class="sem-aniversariantes">Nenhum aniversariante esta semana 🎂</p>';
+    }
+    
+    container.innerHTML = html;
 }
 
-// Carregar posts do blog
+// CARREGAR ÁLBUNS
+function carregarAlbuns() {
+    const container = document.getElementById('albunsGrid');
+    if (!container || !albunsFotos) return;
+    
+    let html = '';
+    
+    albunsFotos.forEach(album => {
+        html += `
+            <div class="album-card-grid" onclick="abrirAlbum(${album.id})">
+                <div class="album-grid-image">
+                    <img src="${album.fotoPrincipal}" alt="${album.titulo}" loading="lazy">
+                </div>
+                <div class="album-grid-info">
+                    <h3>${album.titulo}</h3>
+                    <p><i class="fas fa-camera"></i> ${album.fotos.length} fotos</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// FUNÇÃO GLOBAL PARA ABRIR ÁLBUM
+window.abrirAlbum = function(albumId) {
+    const album = albunsFotos.find(a => a.id === albumId);
+    if (!album) return;
+    
+    const modal = document.getElementById('albumModal');
+    const titulo = document.getElementById('modalAlbumTitulo');
+    const imagem = document.getElementById('modalAlbumImagem');
+    const thumbs = document.getElementById('modalAlbumThumbs');
+    const counter = document.getElementById('fotoCounter');
+    
+    let fotoAtual = 0;
+    
+    function atualizarVisualizacao() {
+        imagem.src = album.fotos[fotoAtual];
+        counter.textContent = `${fotoAtual + 1}/${album.fotos.length}`;
+        
+        let thumbsHtml = '';
+        album.fotos.forEach((foto, index) => {
+            thumbsHtml += `
+                <img src="${foto}" class="thumb-img ${index === fotoAtual ? 'active' : ''}" 
+                     onclick="window.mudarFoto(${index})" loading="lazy">
+            `;
+        });
+        thumbs.innerHTML = thumbsHtml;
+    }
+    
+    window.mudarFoto = function(index) {
+        if (index >= 0 && index < album.fotos.length) {
+            fotoAtual = index;
+            atualizarVisualizacao();
+        }
+    };
+    
+    titulo.textContent = album.titulo;
+    atualizarVisualizacao();
+    modal.classList.add('active');
+    
+    document.getElementById('prevFotoBtn').onclick = () => {
+        if (fotoAtual > 0) {
+            fotoAtual--;
+            atualizarVisualizacao();
+        }
+    };
+    
+    document.getElementById('nextFotoBtn').onclick = () => {
+        if (fotoAtual < album.fotos.length - 1) {
+            fotoAtual++;
+            atualizarVisualizacao();
+        }
+    };
+};
+
+// FECHAR MODAL DO ÁLBUM
+document.addEventListener('DOMContentLoaded', function() {
+    const closeBtn = document.getElementById('closeAlbumModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            document.getElementById('albumModal').classList.remove('active');
+        });
+    }
+    
+    // Fecha modal com ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            document.getElementById('albumModal').classList.remove('active');
+        }
+    });
+});
+
+// CARREGAR EVENTOS
+function carregarEventos() {
+    const container = document.getElementById('eventsContainer');
+    if (!container || !eventos) return;
+    
+    let html = '';
+    
+    eventos.slice(0, 6).forEach(evento => {
+        const data = new Date(evento.data);
+        const dataFormatada = data.toLocaleDateString('pt-BR');
+        
+        html += `
+            <div class="agenda-card">
+                <img src="${evento.imagem}" alt="${evento.titulo}" class="agenda-card-imagem">
+                <div class="agenda-card-conteudo">
+                    <h4 class="agenda-card-titulo">${evento.titulo}</h4>
+                    <div class="agenda-card-info">
+                        <p><i class="far fa-calendar"></i> ${dataFormatada}</p>
+                        <p><i class="far fa-clock"></i> ${evento.hora}</p>
+                        <p><i class="fas fa-map-marker-alt"></i> ${evento.local}</p>
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">${evento.descricao}</p>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+// CARREGAR BLOG
 function carregarBlog() {
     const container = document.getElementById('blogContainer');
+    if (!container || !postsBlog) return;
     
-    if (!container) return;
+    let html = '';
     
-    let blogHTML = '';
-    
-    postsBlog.forEach(post => {
+    postsBlog.slice(0, 3).forEach(post => {
         const data = new Date(post.data);
         const dataFormatada = data.toLocaleDateString('pt-BR');
         
-        blogHTML += `
+        html += `
             <div class="blog-card">
-                <div class="blog-image">
-                    <img src="${post.imagem}" alt="${post.titulo}">
-                </div>
-                <div class="blog-content">
+                <img src="${post.imagem}" alt="${post.titulo}">
+                <div class="blog-card-content">
                     <h3>${post.titulo}</h3>
                     <p>${post.resumo}</p>
-                    <div class="blog-meta">
+                    <div class="blog-card-meta">
                         <span><i class="far fa-user"></i> ${post.autor}</span>
                         <span><i class="far fa-calendar"></i> ${dataFormatada}</span>
                     </div>
-                    <button class="btn-ler-mais" data-post-id="${post.id}">
-                        <i class="fas fa-book-open"></i> Ler artigo completo
+                    <button class="btn-ler-mais" onclick="abrirPost(${post.id})">
+                        Ler mais
                     </button>
                 </div>
             </div>
         `;
     });
     
-    container.innerHTML = blogHTML;
-    
-    document.querySelectorAll('.btn-ler-mais').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const postId = parseInt(this.getAttribute('data-post-id'));
-            abrirPostCompleto(postId);
-        });
-    });
+    container.innerHTML = html;
 }
 
-// Abrir post completo no modal
-function abrirPostCompleto(postId) {
+// ABRIR POST
+window.abrirPost = function(postId) {
     const post = postsBlog.find(p => p.id === postId);
     if (!post) return;
     
@@ -126,645 +276,173 @@ function abrirPostCompleto(postId) {
         <span><i class="far fa-calendar"></i> ${dataFormatada}</span>
     `;
     document.getElementById('modalImage').src = post.imagem;
-    document.getElementById('modalImage').alt = post.titulo;
-    document.getElementById('modalText').innerHTML = `
-        <p>${post.conteudo}</p>
-        ${post.conteudoExtra || ''}
-    `;
+    document.getElementById('modalText').innerHTML = post.conteudo;
     
     modal.classList.add('active');
-    
-    document.getElementById('closeModal').onclick = () => {
-        modal.classList.remove('active');
-    };
-    
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
-    
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            modal.classList.remove('active');
-        }
-    });
-}
+};
 
-// Carregar produtos (camisetas)
-function carregarProdutos() {
-    const container = document.getElementById('productsContainer');
-    
-    if (!container) return;
-    
-    let produtosHTML = '';
-    
-    produtos.forEach(produto => {
-        const tamanhosHTML = produto.tamanhos.map(tamanho => 
-            `<div class="size-option" data-size="${tamanho}">${tamanho}</div>`
-        ).join('');
-        
-        const coresHTML = produto.cores.map(cor => 
-            `<span class="color-option" style="background-color: ${cor.toLowerCase()};" title="${cor}"></span>`
-        ).join('');
-        
-        produtosHTML += `
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="${produto.imagem}" alt="${produto.nome}">
-                    ${produto.disponivel ? '<span class="product-badge">Disponível</span>' : '<span class="product-badge esgotado">Esgotado</span>'}
-                </div>
-                <div class="product-content">
-                    <h3>${produto.nome}</h3>
-                    <p>${produto.descricao}</p>
-                    <div class="product-price">R$ ${produto.preco.toFixed(2)}</div>
-                    <div>Cores disponíveis: ${coresHTML}</div>
-                    <div class="product-sizes">
-                        ${tamanhosHTML}
-                    </div>
-                    <button class="btn btn-primary btn-comprar" data-id="${produto.id}">Comprar Agora</button>
-                </div>
-            </div>
-        `;
-    });
-    
-    container.innerHTML = produtosHTML;
-    
-    document.querySelectorAll('.size-option').forEach(option => {
-        option.addEventListener('click', function() {
-            document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
-            this.classList.add('selected');
-        });
-    });
-    
-    document.querySelectorAll('.btn-comprar').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const produtoId = this.getAttribute('data-id');
-            const produto = produtos.find(p => p.id == produtoId);
-            
-            const tamanhoSelecionado = this.parentElement.querySelector('.size-option.selected');
-            
-            if (!tamanhoSelecionado) {
-                alert('Por favor, selecione um tamanho antes de comprar.');
-                return;
-            }
-            
-            const tamanho = tamanhoSelecionado.getAttribute('data-size');
-            
-            const confirmacao = confirm(`Você está comprando: ${produto.nome}\nTamanho: ${tamanho}\nValor: R$ ${produto.preco.toFixed(2)}\n\nDeseja continuar?`);
-            
-            if (confirmacao) {
-                alert('Compra realizada com sucesso! Em breve entraremos em contato para finalizar o pagamento.');
-            }
-        });
-    });
-}
-
-// Inicializar formulários
-function initForms() {
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKt2rq7hXUfGWuivD8M4yHKW3h0HbMIYB2dd8BzEis9SGnBTYeDbAyPDHOWpA68J3XtA/exec";
-    
-    // Formulário de inscrição no retiro
-    const retiroForm = document.getElementById('retiroForm');
-    if (retiroForm) {
-        retiroForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            if (this.classList.contains('enviando')) {
-                return;
-            }
-            
-            const dados = {
-                nome: document.getElementById('nome').value,
-                email: document.getElementById('email').value,
-                telefone: document.getElementById('telefone').value,
-                idade: document.getElementById('idade').value,
-                acomodacao: document.getElementById('tipoAcomodacao').value,
-                observacoes: document.getElementById('observacoes').value || ''
-            };
-            
-            if (!dados.nome || !dados.email || !dados.telefone || !dados.idade || !dados.acomodacao) {
-                mostrarMensagem('retiroMessage', 'Por favor, preencha todos os campos obrigatórios.', 'error');
-                return;
-            }
-            
-            const botao = retiroForm.querySelector('button[type="submit"]');
-            const textoOriginal = botao.textContent;
-            botao.textContent = 'Enviando...';
-            botao.disabled = true;
-            
-            try {
-                await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(dados)
-                });
-                
-                mostrarMensagem('retiroMessage', 
-                    '✅ Inscrição enviada com sucesso! Em breve entraremos em contato.', 
-                    'success');
-                
-                retiroForm.reset();
-                
-            } catch (error) {
-                mostrarMensagem('retiroMessage', 
-                    '✅ Inscrição salva localmente!', 
-                    'success');
-                console.log('Dados da inscrição (fallback):', dados);
-            } finally {
-                botao.textContent = textoOriginal;
-                botao.disabled = false;
-            }
+// FECHAR MODAL DO POST
+document.addEventListener('DOMContentLoaded', function() {
+    const closeModal = document.getElementById('closeModal');
+    if (closeModal) {
+        closeModal.addEventListener('click', function() {
+            document.getElementById('postModal').classList.remove('active');
         });
     }
     
-    // Formulário de contato
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const nome = document.getElementById('contactNome').value;
-            const email = document.getElementById('contactEmail').value;
-            const assunto = document.getElementById('assunto').value;
-            const mensagem = document.getElementById('mensagem').value;
-            
-            if (!nome || !email || !assunto || !mensagem) {
-                mostrarMensagem('contactMessage', 'Por favor, preencha todos os campos obrigatórios.', 'error');
-                return;
-            }
-            
-            mostrarMensagem('contactMessage', 'Mensagem enviada com sucesso! Responderemos em breve.', 'success');
-            contactForm.reset();
-            
-            console.log('Mensagem de contato:', { nome, email, assunto, mensagem });
-        });
-    }
-    
-    // Formulário de newsletter
-    const newsletterForm = document.getElementById('newsletterForm');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('newsletterEmail').value;
-            
-            if (!email) {
-                alert('Por favor, insira seu e-mail.');
-                return;
-            }
-            
-            alert(`Obrigado por se inscrever na nossa newsletter! Um e-mail de confirmação foi enviado para ${email}.`);
-            newsletterForm.reset();
-            
-            console.log('Inscrição na newsletter:', email);
-        });
-    }
-}
-
-// Mostrar mensagens nos formulários
-function mostrarMensagem(elementId, texto, tipo) {
-    const elemento = document.getElementById(elementId);
-    elemento.textContent = texto;
-    elemento.className = `form-message ${tipo}`;
-    
-    setTimeout(() => {
-        elemento.className = 'form-message';
-        elemento.textContent = '';
-    }, 5000);
-}
-
-// Funções para o carrossel de álbuns de fotos
-function initCarrossel() {
-    const carouselTrack = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const carouselDots = document.getElementById('carouselDots');
-    
-    if (!carouselTrack) return;
-    
-    let currentSlide = 0;
-    const slidesPerView = getSlidesPerView();
-    
-    let albumsHTML = '';
-    let dotsHTML = '';
-    
-    albunsFotos.forEach((album, index) => {
-        const data = new Date(album.data);
-        const dataFormatada = data.toLocaleDateString('pt-BR');
-        
-        albumsHTML += `
-            <div class="album-card" data-album-id="${album.id}">
-                <div class="album-image">
-                    <img src="${album.fotoPrincipal}" alt="${album.titulo}">
-                    <div class="album-overlay">
-                        <span class="album-count">
-                            <i class="fas fa-camera"></i> ${album.fotos.length}
-                        </span>
-                    </div>
-                </div>
-                <div class="album-content">
-                    <h3>${album.titulo}</h3>
-                    <p>${album.descricao}</p>
-                    <div class="album-date">
-                        <i class="far fa-calendar"></i> ${dataFormatada}
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        dotsHTML += `
-            <button class="carousel-dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></button>
-        `;
-    });
-    
-    carouselTrack.innerHTML = albumsHTML;
-    carouselDots.innerHTML = dotsHTML;
-    
-    updateTrackWidth();
-    
-    prevBtn.addEventListener('click', () => {
-        if (currentSlide > 0) {
-            currentSlide--;
-            updateCarousel();
-        }
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        const maxSlide = Math.ceil(albunsFotos.length / slidesPerView) - 1;
-        if (currentSlide < maxSlide) {
-            currentSlide++;
-            updateCarousel();
-        }
-    });
-    
-    document.querySelectorAll('.carousel-dot').forEach(dot => {
-        dot.addEventListener('click', () => {
-            currentSlide = parseInt(dot.getAttribute('data-slide'));
-            updateCarousel();
-        });
-    });
-    
-    document.querySelectorAll('.album-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const albumId = parseInt(card.getAttribute('data-album-id'));
-            openAlbumViewer(albumId);
-        });
-    });
-    
-    window.addEventListener('resize', () => {
-        updateTrackWidth();
-        updateCarousel();
-    });
-    
-    function updateTrackWidth() {
-        const slidesPerView = getSlidesPerView();
-        const slideWidth = 100 / slidesPerView;
-        const totalSlides = albunsFotos.length;
-        
-        carouselTrack.style.width = `${(totalSlides * 100) / slidesPerView}%`;
-        
-        document.querySelectorAll('.album-card').forEach(slide => {
-            slide.style.flex = `0 0 ${slideWidth}%`;
-        });
-    }
-    
-    function updateCarousel() {
-        const slidesPerView = getSlidesPerView();
-        const slideWidth = 100 / slidesPerView;
-        const translateX = -currentSlide * slideWidth;
-        
-        carouselTrack.style.transform = `translateX(${translateX}%)`;
-        
-        document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-        
-        const maxSlide = Math.ceil(albunsFotos.length / slidesPerView) - 1;
-        prevBtn.disabled = currentSlide === 0;
-        nextBtn.disabled = currentSlide === maxSlide;
-    }
-    
-    function getSlidesPerView() {
-        if (window.innerWidth >= 992) return 3;
-        if (window.innerWidth >= 768) return 2;
-        return 1;
-    }
-    
-    updateCarousel();
-}
-
-// Visualizador de álbuns
-function openAlbumViewer(albumId) {
-    const album = albunsFotos.find(a => a.id === albumId);
-    if (!album) return;
-    
-    const viewer = document.getElementById('albumViewer');
-    const viewerTitle = document.getElementById('viewerTitle');
-    const viewerMainImage = document.getElementById('viewerMainImage');
-    const viewerThumbnails = document.getElementById('viewerThumbnails');
-    const currentImageIndex = document.getElementById('currentImageIndex');
-    const totalImages = document.getElementById('totalImages');
-    
-    viewerTitle.textContent = album.titulo;
-    totalImages.textContent = album.fotos.length;
-    
-    let currentImage = 0;
-    
-    function loadImages() {
-        viewerMainImage.src = album.fotos[currentImage];
-        viewerMainImage.alt = `${album.titulo} - Foto ${currentImage + 1}`;
-        currentImageIndex.textContent = currentImage + 1;
-        
-        let thumbnailsHTML = '';
-        album.fotos.forEach((foto, index) => {
-            thumbnailsHTML += `
-                <div class="thumbnail ${index === currentImage ? 'active' : ''}" 
-                     data-index="${index}">
-                    <img src="${foto}" alt="Foto ${index + 1}">
-                </div>
-            `;
-        });
-        viewerThumbnails.innerHTML = thumbnailsHTML;
-        
-        document.querySelectorAll('.thumbnail').forEach(thumb => {
-            thumb.addEventListener('click', () => {
-                currentImage = parseInt(thumb.getAttribute('data-index'));
-                loadImages();
-            });
-        });
-    }
-    
-    loadImages();
-    
-    const prevImageBtn = document.getElementById('prevImageBtn');
-    const nextImageBtn = document.getElementById('nextImageBtn');
-    const closeViewer = document.getElementById('closeViewer');
-    
-    prevImageBtn.onclick = () => {
-        if (currentImage > 0) {
-            currentImage--;
-            loadImages();
-        }
-    };
-    
-    nextImageBtn.onclick = () => {
-        if (currentImage < album.fotos.length - 1) {
-            currentImage++;
-            loadImages();
-        }
-    };
-    
-    closeViewer.onclick = () => {
-        viewer.classList.remove('active');
-    };
-    
-    document.addEventListener('keydown', function closeOnEsc(e) {
-        if (e.key === 'Escape') {
-            viewer.classList.remove('active');
-            document.removeEventListener('keydown', closeOnEsc);
-        }
-    });
-    
-    viewer.classList.add('active');
-}
-
-// Rolagem suave para âncoras
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            if (href === '#') return;
-            
-            e.preventDefault();
-            const targetElement = document.querySelector(href);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// Ativar link ativo na navegação conforme rolagem
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-            currentSection = '#' + section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === currentSection) {
-            link.classList.add('active');
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal-post')) {
+            e.target.classList.remove('active');
         }
     });
 });
 
-// ============================================
-// FUNÇÃO DO HINO DA SEMANA (MÚLTIPLOS HINOS)
-// ============================================
-
-function abrirFoto(fotoUrl) {
-    const albumTemp = {
-        titulo: "Último Evento",
-        fotos: [fotoUrl]
-    };
+// CARREGAR RETIRO
+function carregarRetiro() {
+    const container = document.getElementById('retiroContent');
+    if (!container) return;
     
-    const viewer = document.getElementById('albumViewer');
-    const viewerTitle = document.getElementById('viewerTitle');
-    const viewerMainImage = document.getElementById('viewerMainImage');
-    const viewerThumbnails = document.getElementById('viewerThumbnails');
-    const currentImageIndex = document.getElementById('currentImageIndex');
-    const totalImages = document.getElementById('totalImages');
-    
-    viewerTitle.textContent = albumTemp.titulo;
-    viewerMainImage.src = fotoUrl;
-    currentImageIndex.textContent = '1';
-    totalImages.textContent = '1';
-    
-    viewerThumbnails.innerHTML = `
-        <div class="thumbnail active">
-            <img src="${fotoUrl}" alt="Foto">
+    container.innerHTML = `
+        <div class="retiro-info">
+            <h3>START - Encontro com Deus</h3>
+            <p><strong>Data:</strong> 15 a 17 de Maio de 2026</p>
+            <p><strong>Local:</strong> Fazenda Monte Sião</p>
+            <p><strong>Investimento:</strong> R$ 400,00 (tudo incluso)</p>
+            <ul class="retiro-benefits">
+                <li><i class="fas fa-check"></i> Alimentação completa</li>
+                <li><i class="fas fa-check"></i> Hospedagem</li>
+                <li><i class="fas fa-check"></i> Transporte</li>
+                <li><i class="fas fa-check"></i> Material do evento</li>
+            </ul>
+        </div>
+        <div class="retiro-form">
+            <h4>Faça sua inscrição</h4>
+            <form id="retiroForm">
+                <input type="text" placeholder="Nome completo" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="WhatsApp" required>
+                <input type="number" placeholder="Idade" required>
+                <select required>
+                    <option value="">Tipo de acomodação</option>
+                    <option value="coletiva">Coletiva</option>
+                </select>
+                <textarea placeholder="Observações (alergias, etc)" rows="3"></textarea>
+                <button type="submit" class="btn btn-primary btn-block">Enviar inscrição</button>
+            </form>
         </div>
     `;
-    
-    viewer.classList.add('active');
 }
 
-// FUNÇÃO PRINCIPAL DO HINO (MÚLTIPLOS HINOS)
+// HINOS DA SEMANA
 function initHinosSemana() {
-    console.log('🚀 FUNÇÃO INIT HINOS INICIOU');
-    
     const hinoBtn = document.getElementById('hinoBtnHeader');
     const hinoModal = document.getElementById('hinoModal');
     const closeBtn = document.getElementById('closeHinoModal');
     
-    console.log('🔍 Botão encontrado:', hinoBtn);
-    console.log('🔍 Modal encontrado:', hinoModal);
-    console.log('🔍 Hinos disponíveis:', hinosDisponiveis);
+    if (!hinoBtn || !hinoModal || !hinosDisponiveis || hinosDisponiveis.length === 0) return;
     
-    if (!hinosDisponiveis || hinosDisponiveis.length === 0) {
-        console.log('Nenhum hino disponível');
-        if (hinoBtn) hinoBtn.style.display = 'none';
-        return;
-    }
-    
-    if (!hinoBtn) {
-        console.log('❌ Botão NÃO encontrado!');
-        return;
-    }
-    
-    if (!hinoModal) {
-        console.log('❌ Modal NÃO encontrado!');
-        return;
-    }
-    
-    // Mostra o botão
-    hinoBtn.style.display = 'flex';
-    console.log('✅ Botão está visível');
-    
-    // Variável para controlar o hino atual
     let hinoAtual = 0;
     
-    // Função para carregar um hino específico
     function carregarHino(index) {
-        console.log('Carregando hino:', index);
         const hino = hinosDisponiveis[index];
         
-        // Títulos
-        const tituloEl = document.getElementById('hinoTitulo');
-        const artistaEl = document.getElementById('hinoArtista');
-        if (tituloEl) tituloEl.textContent = hino.titulo;
-        if (artistaEl) artistaEl.textContent = hino.artista;
-        
-        // Observação
-        const headerEl = document.querySelector('.hino-modal-header');
-        if (headerEl) {
-            let obsEl = document.getElementById('hinoObservacao');
-            if (!obsEl) {
-                obsEl = document.createElement('p');
-                obsEl.id = 'hinoObservacao';
-                obsEl.style.fontSize = '0.9rem';
-                obsEl.style.marginTop = '5px';
-                obsEl.style.opacity = '0.8';
-                headerEl.appendChild(obsEl);
-            }
-            obsEl.innerHTML = `<i class="far fa-calendar-alt"></i> ${hino.observacao || hino.data}`;
-        }
+        document.getElementById('hinoTitulo').textContent = hino.titulo;
+        document.getElementById('hinoArtista').textContent = hino.artista;
         
         // Vídeo
         const videoContainer = document.getElementById('hinoVideo');
-        if (videoContainer && hino.link) {
-            let embedUrl = hino.link;
-            if (embedUrl.includes('youtube.com/watch?v=')) {
-                embedUrl = embedUrl.replace('watch?v=', 'embed/');
-            } else if (embedUrl.includes('youtu.be/')) {
-                embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
-            }
-            videoContainer.innerHTML = `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+        let embedUrl = hino.link;
+        if (embedUrl.includes('watch?v=')) {
+            embedUrl = embedUrl.replace('watch?v=', 'embed/');
+        } else if (embedUrl.includes('youtu.be/')) {
+            embedUrl = embedUrl.replace('youtu.be/', 'youtube.com/embed/');
         }
+        videoContainer.innerHTML = `<iframe src="${embedUrl}" allowfullscreen></iframe>`;
         
         // Letra
-        const letraEl = document.getElementById('hinoLetra');
-        if (letraEl) {
-            letraEl.innerHTML = hino.letra.replace(/\n/g, '<br>');
-        }
+        document.getElementById('hinoLetra').innerHTML = hino.letra.replace(/\n/g, '<br>');
         
-        // Contador
+        // Navegação
+        const navContainer = document.getElementById('hinoNavigation');
         if (hinosDisponiveis.length > 1) {
-            let counterEl = document.getElementById('hinoCounter');
-            if (!counterEl) {
-                counterEl = document.createElement('div');
-                counterEl.id = 'hinoCounter';
-                counterEl.style.textAlign = 'center';
-                counterEl.style.marginTop = '10px';
-                counterEl.style.padding = '10px';
-                counterEl.style.borderTop = '1px solid #eee';
-                const bodyEl = document.querySelector('.hino-modal-body');
-                if (bodyEl) bodyEl.appendChild(counterEl);
-            }
-            if (counterEl) {
-                counterEl.innerHTML = `
-                    <button class="btn-hino-nav" id="prevHino" ${index === 0 ? 'disabled' : ''}>
-                        <i class="fas fa-chevron-left"></i> Anterior
-                    </button>
-                    <span style="margin: 0 15px;">${index + 1} de ${hinosDisponiveis.length}</span>
-                    <button class="btn-hino-nav" id="nextHino" ${index === hinosDisponiveis.length - 1 ? 'disabled' : ''}>
-                        Próximo <i class="fas fa-chevron-right"></i>
-                    </button>
-                `;
-                
-                // Remover eventos antigos e adicionar novos
-                setTimeout(() => {
-                    const prevBtn = document.getElementById('prevHino');
-                    const nextBtn = document.getElementById('nextHino');
-                    
-                    if (prevBtn) {
-                        prevBtn.onclick = () => {
-                            if (hinoAtual > 0) {
-                                hinoAtual--;
-                                carregarHino(hinoAtual);
-                            }
-                        };
-                    }
-                    
-                    if (nextBtn) {
-                        nextBtn.onclick = () => {
-                            if (hinoAtual < hinosDisponiveis.length - 1) {
-                                hinoAtual++;
-                                carregarHino(hinoAtual);
-                            }
-                        };
-                    }
-                }, 100);
-            }
+            navContainer.innerHTML = `
+                <button class="hino-nav-btn" id="prevHinoBtn" ${index === 0 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <span style="display: flex; align-items: center;">${index + 1}/${hinosDisponiveis.length}</span>
+                <button class="hino-nav-btn" id="nextHinoBtn" ${index === hinosDisponiveis.length - 1 ? 'disabled' : ''}>
+                    Próximo <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+            
+            document.getElementById('prevHinoBtn')?.addEventListener('click', () => {
+                if (hinoAtual > 0) {
+                    hinoAtual--;
+                    carregarHino(hinoAtual);
+                }
+            });
+            
+            document.getElementById('nextHinoBtn')?.addEventListener('click', () => {
+                if (hinoAtual < hinosDisponiveis.length - 1) {
+                    hinoAtual++;
+                    carregarHino(hinoAtual);
+                }
+            });
         }
     }
     
-    // Carregar primeiro hino
     carregarHino(0);
     
-    // Abrir modal - REMOVER eventos antigos antes de adicionar novo
-    hinoBtn.onclick = function() {
-        console.log('🎵 BOTÃO CLICADO!');
+    hinoBtn.addEventListener('click', () => {
         hinoModal.classList.add('active');
-    };
+    });
     
-    // Fechar modal
-    if (closeBtn) {
-        closeBtn.onclick = function() {
-            hinoModal.classList.remove('active');
-        };
-    }
+    closeBtn.addEventListener('click', () => {
+        hinoModal.classList.remove('active');
+    });
     
-    // Fechar ao clicar fora
-    hinoModal.onclick = function(e) {
+    hinoModal.addEventListener('click', (e) => {
         if (e.target === hinoModal) {
             hinoModal.classList.remove('active');
         }
-    };
-    
-    // Fechar com ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && hinoModal.classList.contains('active')) {
-            hinoModal.classList.remove('active');
-        }
     });
+}
+
+// FORMULÁRIOS
+function initForms() {
+    // Form de contato
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso!');
+            this.reset();
+        });
+    }
     
-    console.log('✅ Função initHinosSemana completa!');
+    // Form do retiro
+    const retiroForm = document.getElementById('retiroForm');
+    if (retiroForm) {
+        retiroForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Inscrição enviada! Em breve entraremos em contato.');
+            this.reset();
+        });
+    }
+}
+
+// ROLAGEM SUAVE
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 }

@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Jovens Júbilos de Paz</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,46 +16,42 @@
                 <h1><i class="fas fa-cross"></i> Jovens Júbilos de Paz</h1>
                 <p>Assembléia de Deus - Sede</p>
             </div>
-            <div class="header-buttons">
-                <a href="#inscricao-retiro" class="btn btn-primary">Inscreva-se no Retiro</a>
-                <a href="#camisetas" class="btn btn-secondary">Compre a Camiseta</a>
-                <button class="btn-hino-header" id="hinoBtnHeader">
-                    <i class="fas fa-music"></i> Hino da Semana
-                </button>
-            </div>
+            <button class="btn-hino-header" id="hinoBtnHeader">
+                <i class="fas fa-music"></i> Hino da Semana
+            </button>
         </div>
     </header>
 
     <!-- Navegação -->
     <nav>
-        <div class="container">
-            <ul class="nav-menu">
-                <li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
-                <li><a href="#agenda"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
-                <li><a href="#blog"><i class="fas fa-blog"></i> Blog & Recados</a></li>
-                <li><a href="#inscricao-retiro"><i class="fas fa-mountain"></i> Retiro</a></li>
-                <li><a href="#camisetas"><i class="fas fa-tshirt"></i> Camisetas</a></li>
-                <li><a href="#sobre"><i class="fas fa-users"></i> Sobre Nós</a></li>
-                <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
-            </ul>
+        <div class="container nav-container">
             <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i> Menu
             </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#evento-principal"><i class="fas fa-star"></i> Evento Principal</a></li>
+                <li><a href="#aniversariantes"><i class="fas fa-birthday-cake"></i> Aniversariantes</a></li>
+                <li><a href="#albuns"><i class="fas fa-images"></i> Fotos</a></li>
+                <li><a href="#agenda"><i class="fas fa-calendar-alt"></i> Agenda</a></li>
+                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#inscricao-retiro"><i class="fas fa-mountain"></i> Retiro</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Conteúdo Principal -->
     <main>
-        <!-- Seção Inicial - Hero SEM overlay azul -->
+        <!-- Seção Inicial - Hero -->
         <section id="inicio" class="hero-novo">
             <div class="hero-image-wrapper">
-                <img src="culto jovens.jpeg" alt="Jovens em grupo" class="hero-img">
+                <img src="culto jovens.jpeg" alt="Jovens em grupo" class="hero-img" loading="lazy">
                 <div class="hero-content-overlay">
                     <div class="container">
                         <h2>Bem-vindos, Jovens!</h2>
                         <p>Um lugar para crescer na fé, construir amizades e servir com propósito. Junte-se a nós nessa jornada!</p>
                         <div class="hero-buttons">
-                            <a href="#agenda" class="btn btn-primary">Próximos Eventos</a>
+                            <a href="#evento-principal" class="btn btn-primary">Evento Principal</a>
                             <a href="#inscricao-retiro" class="btn btn-secondary">Retiro 2026</a>
                         </div>
                     </div>
@@ -63,92 +59,58 @@
             </div>
         </section>
 
-       <!-- Seção do Último Evento -->
-<!-- Seção do Último Evento -->
-<section id="ultimo-evento" class="ultimo-evento-section">
-    <div class="container">
-        <h2 class="section-title"><i class="fas fa-star"></i> Último Evento</h2>
-        
-        <div class="ultimo-evento-container">
-            <!-- LADO ESQUERDO: TEXTO -->
-            <div class="ultimo-evento-info">
-                <h3>Culto dos Jovens</h3>
-                <p class="evento-data"><i class="far fa-calendar-alt"></i> 07 de Fevereiro de 2026</p>
-                <p class="evento-tema"><strong>Tema:</strong> DESPERTA!</p>
-                <p class="evento-descricao">
-                    <i class="fas fa-hand-point-up"></i> Um momento de louvor, palavra e aprendizado
-                </p>
+        <!-- EVENTO PRINCIPAL EM DESTAQUE -->
+        <section id="evento-principal" class="section evento-principal-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-star"></i> Evento Principal</h2>
+                <div class="evento-principal-card" id="eventoPrincipalContainer"></div>
             </div>
-            
-            <!-- LADO DIREITO: VÍDEO (COM ID) -->
-            <div class="ultimo-evento-video">
-                <h4><i class="fas fa-video"></i> Momentos Especiais</h4>
-                <div class="video-wrapper" id="ultimoEventoVideo">
-                    <!-- VÍDEO DIRETO NO HTML -->
-                    <video width="100%" height="100%" controls>
-                        <source src="videos/ultimovideo.mp4" type="video/mp4">
-                        Seu navegador não suporta vídeos.
-                    </video>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-        <!-- Álbuns de Fotos -->
+        <!-- ANIVERSARIANTES DA SEMANA -->
+        <section id="aniversariantes" class="section aniversariantes-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-birthday-cake"></i> Aniversariantes da Semana</h2>
+                <div class="aniversariantes-container" id="aniversariantesContainer"></div>
+            </div>
+        </section>
+
+        <!-- Álbuns de Fotos - NOVO DESIGN -->
         <section id="albuns" class="section">
             <div class="container">
-                <h2 class="section-title"><i class="fas fa-images"></i> Álbuns de Fotos</h2>
-                <p class="section-subtitle">Reviva os melhores momentos dos nossos eventos</p>
+                <h2 class="section-title"><i class="fas fa-images"></i> Nossos Momentos</h2>
+                <p class="section-subtitle">Reviva os melhores momentos da nossa juventude</p>
                 
-                <div class="albuns-container">
-                    <div class="carousel-container">
-                        <div class="carousel-track" id="carouselTrack"></div>
-                        
-                        <button class="carousel-btn carousel-btn-prev" id="prevBtn">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-btn carousel-btn-next" id="nextBtn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        
-                        <div class="carousel-dots" id="carouselDots"></div>
-                    </div>
-                    
-                    <div class="album-viewer" id="albumViewer">
-                        <div class="viewer-header">
-                            <h3 id="viewerTitle">Álbum de Fotos</h3>
-                            <button class="close-viewer" id="closeViewer">
-                                <i class="fas fa-times"></i>
-                            </button>
+                <div class="albuns-grid" id="albunsGrid"></div>
+                
+                <!-- Modal do Álbum -->
+                <div class="album-modal" id="albumModal">
+                    <div class="album-modal-content">
+                        <div class="album-modal-header">
+                            <h3 id="modalAlbumTitulo"></h3>
+                            <button class="close-modal-album" id="closeAlbumModal">&times;</button>
                         </div>
-                        <div class="viewer-content">
-                            <div class="viewer-main-image">
-                                <img id="viewerMainImage" src="" alt="">
-                                <div class="image-counter">
-                                    <span id="currentImageIndex">1</span> de <span id="totalImages">0</span>
+                        <div class="album-modal-body">
+                            <div class="album-modal-main">
+                                <img id="modalAlbumImagem" src="" alt="">
+                                <div class="album-modal-nav">
+                                    <button class="nav-btn" id="prevFotoBtn"><i class="fas fa-chevron-left"></i></button>
+                                    <span id="fotoCounter">1/10</span>
+                                    <button class="nav-btn" id="nextFotoBtn"><i class="fas fa-chevron-right"></i></button>
                                 </div>
                             </div>
-                            <div class="viewer-thumbnails" id="viewerThumbnails"></div>
-                            <div class="viewer-controls">
-                                <button class="viewer-btn" id="prevImageBtn">
-                                    <i class="fas fa-chevron-left"></i> Anterior
-                                </button>
-                                <button class="viewer-btn" id="nextImageBtn">
-                                    Próxima <i class="fas fa-chevron-right"></i>
-                                </button>
-                            </div>
+                            <div class="album-modal-thumbs" id="modalAlbumThumbs"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Agenda - NOVA VERSÃO COM BANNERS -->
+        <!-- Agenda -->
         <section id="agenda" class="section agenda-section">
             <div class="container">
-                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Agenda de Eventos</h2>
-                <div class="agenda-banners" id="eventsContainer"></div>
+                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Próximos Eventos</h2>
+                <div class="agenda-cards" id="eventsContainer"></div>
             </div>
         </section>
 
@@ -157,23 +119,6 @@
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-blog"></i> Blog & Recados</h2>
                 <div class="blog-container" id="blogContainer"></div>
-                
-                <!-- Modal para visualizar post completo -->
-                <div class="modal-post" id="postModal">
-                    <div class="modal-content">
-                        <button class="close-modal" id="closeModal">&times;</button>
-                        <div class="modal-header">
-                            <h2 id="modalTitle"></h2>
-                            <div class="modal-meta" id="modalMeta"></div>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-image">
-                                <img id="modalImage" src="" alt="">
-                            </div>
-                            <div class="modal-text" id="modalText"></div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -181,82 +126,7 @@
         <section id="inscricao-retiro" class="section highlight-section">
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-mountain"></i> Retiro 2026</h2>
-                <div class="retiro-content">
-                    <div class="retiro-info">
-                        <h3>Encontro com Deus na Natureza</h3>
-                        <p><strong>Data:</strong> 15-17 de Maio de 2026</p>
-                        <p><strong>Local:</strong> Fazenda Monte Sião</p>
-                        <p><strong>Tema:</strong> "Start - Isaías 43:18-19"</p>
-                        <p>Participe do nosso retiro anual para jovens! Três dias de reflexão, adoração, palestras inspiradoras e muita comunhão. Vagas limitadas!</p>
-                        <ul class="retiro-benefits">
-                            <li><i class="fas fa-check"></i> Cultos com pastores convidados</li>
-                            <li><i class="fas fa-check"></i> Momentos de adoração e oração</li>
-                            <li><i class="fas fa-check"></i> Atividades ao ar livre</li>
-                            <li><i class="fas fa-check"></i> Alojamento e alimentação inclusos</li>
-                        </ul>
-                    </div>
-                    <div class="retiro-form">
-                        <h3>Formulário de Inscrição</h3>
-                        <form id="retiroForm">
-                            <div class="form-group">
-                                <input type="text" id="nome" placeholder="Seu nome completo" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Seu e-mail" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="telefone" placeholder="Seu telefone" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="number" id="idade" placeholder="Sua idade" min="13" max="35" required>
-                            </div>
-                            <div class="form-group">
-                                <select id="tipoAcomodacao" required>
-                                    <option value="">Tipo de acomodação</option>
-                                    <option value="coletiva">Coletiva (R$ 400)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="observacoes" placeholder="Observações (alergias, restrições alimentares, etc.)" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Enviar Inscrição</button>
-                            <div id="retiroMessage" class="form-message"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Camisetas -->
-        <section id="camisetas" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-tshirt"></i> Camisetas dos Jovens</h2>
-                <p class="section-subtitle">Adquira já a camiseta oficial dos Jovens Júbilos de Paz 2026</p>
-                <div class="products-container" id="productsContainer"></div>
-            </div>
-        </section>
-
-        <!-- Sobre Nós -->
-        <section id="sobre" class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-users"></i> Sobre Nós</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Nossa Missão</h3>
-                        <p>Nossa missão é ganhar almas para Jesus, vivendo e anunciando o Evangelho com amor, ousadia e verdade. Buscamos diariamente ser cheios do Espírito Santo, permitindo que Ele transforme nossas vidas, direcione nossos passos e nos use como instrumentos do Reino. Valorizamos a comunhão sincera, construindo amizades saudáveis, momentos de alegria, risadas e unidade, compartilhando não apenas a fé, mas também a vida — em conversas, em experiências e até ao redor de uma boa comida. Queremos ser uma geração apaixonada por Deus, relevante no mundo e comprometida com o propósito eterno.</p>
-                        <h3>Nossas Atividades</h3>
-                        <ul>
-                            <li>Encontros mensais no primeiro sábado do mês, às 19h30</li>
-                            <li>Escola Bíblica todo domingo, às 09h</li>
-                            <li>Evangelismo nas ruas</li>
-                            <li>Retiros anuais</li>
-                            <li>Eventos semestrais</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <img src="albuns/congresso-2025/1.JPEG" alt="Jovens em atividade na igreja">
-                    </div>
-                </div>
+                <div class="retiro-content" id="retiroContent"></div>
             </div>
         </section>
 
@@ -266,39 +136,21 @@
                 <h2 class="section-title"><i class="fas fa-envelope"></i> Entre em Contato</h2>
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h3>Informações de Contato</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> Rua Júlia Thereza Bini, 740 - Centro, Araucária - PR</p>
-                        <p><i class="fas fa-phone"></i> <strong>Telefone:</strong> (41) 9874-5144</p>
+                        <h3>Informações</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Rua Júlia Thereza Bini, 740 - Centro, Araucária - PR</p>
+                        <p><i class="fas fa-phone"></i> (41) 9874-5144</p>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-whatsapp"></i></a>
                             <a href="#"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     <div class="contact-form">
-                        <h3>Envie uma Mensagem</h3>
                         <form id="contactForm">
-                            <div class="form-group">
-                                <input type="text" id="contactNome" placeholder="Seu nome" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="contactEmail" placeholder="Seu e-mail" required>
-                            </div>
-                            <div class="form-group">
-                                <select id="assunto" required>
-                                    <option value="">Assunto da mensagem</option>
-                                    <option value="informacoes">Informações sobre o grupo</option>
-                                    <option value="oracao">Pedido de oração</option>
-                                    <option value="eventos">Dúvidas sobre eventos</option>
-                                    <option value="outro">Outro assunto</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
-                            <div id="contactMessage" class="form-message"></div>
+                            <input type="text" placeholder="Seu nome" required>
+                            <input type="email" placeholder="Seu e-mail" required>
+                            <textarea placeholder="Sua mensagem" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                         </form>
                     </div>
                 </div>
@@ -308,34 +160,29 @@
 
     <!-- Rodapé -->
     <footer>
-        <div class="container footer-content">
-            <div class="footer-logo">
-                <h3><i class="fas fa-cross"></i> Jovens Júbilos de Paz</h3>
-                <p>Conectando jovens a Deus e uns aos outros</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><i class="fas fa-cross"></i> Jovens Júbilos de Paz</h3>
+                    <p>Conectando jovens a Deus e uns aos outros</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#evento-principal">Evento Principal</a></li>
+                        <li><a href="#aniversariantes">Aniversariantes</a></li>
+                        <li><a href="#albuns">Fotos</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Links Rápidos</h4>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#agenda">Agenda</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#inscricao-retiro">Retiro</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jovens Júbilos de Paz</p>
             </div>
-            <div class="footer-newsletter">
-                <h4>Receba Nossas Novidades</h4>
-                <form id="newsletterForm">
-                    <input type="email" id="newsletterEmail" placeholder="Seu e-mail" required>
-                    <button type="submit" class="btn btn-secondary">Inscrever</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Jovens Júbilos de Paz. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Modal do Hino da Semana -->
+    <!-- Modal do Hino -->
     <div class="hino-modal" id="hinoModal">
         <div class="hino-modal-content">
             <div class="hino-modal-header">
@@ -346,11 +193,26 @@
             <div class="hino-modal-body">
                 <div class="hino-video" id="hinoVideo"></div>
                 <div class="hino-letra" id="hinoLetra"></div>
+                <div class="hino-navigation" id="hinoNavigation"></div>
             </div>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Modal do Blog -->
+    <div class="modal-post" id="postModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <div class="modal-meta" id="modalMeta"></div>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <div id="modalText" class="modal-text"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="dados.js"></script>
     <script src="script.js"></script>
 </body>

@@ -1,116 +1,181 @@
 // ARQUIVO DE DADOS - ATUALIZE AQUI PARA MODIFICAR O CONTEÚDO DO SITE
 
 // ============================================
+// ANIVERSARIANTES DA SEMANA
+// ============================================
+const aniversariantesSemana = [
+    {
+        id: 1,
+        nome: "Lara Keyti",
+        data: "2026-02-24",
+        foto: "albuns/aniversariantes/1.jpeg",
+    },
+    {
+        id: 2,
+        nome: "Caio Jadiel",
+        data: "2026-02-26",
+        foto: "albuns/aniversariantes/2.jpeg",
+    },
+    {
+        id: 3,
+        nome: "Fernanda Menezes",
+        data: "2026-03-02",
+        foto: "albuns/aniversariantes/3.jpeg",
+    }
+];
+
+// ============================================
+// EVENTO PRINCIPAL EM DESTAQUE
+// ============================================
+const eventoPrincipal = {
+    titulo: "Culto dos Jovens",
+    data: "07 de Março de 2026",
+    hora: "19:30",
+    local: "Rua Júlia Thereza Bini, 740",
+    descricao: "Tema: E onde está o Espírito do Senhor, ai há liberdade!",
+    imagem: "albuns/eventoprincipal.jpeg", // <-- COLOQUE SUA FOTO AQUI
+    chamada: "Um culto especial com louvor, palavra e muito mais. Traga sua família e amigos!"
+};
+
+// ============================================
 // HINOS DA SEMANA - ADICIONE VÁRIOS HINOS AQUI
 // ============================================
 const hinosSemana = [
     {
         id: 1,
-        titulo: "Quando ele vem",
-        artista: "André Aquino",
-        link: "https://www.youtube.com/watch?v=p3Raz8HuDjU",
-        data: "2026-02-23",
-        observacao: "Hino do sábado - 23/02/2026",
+        titulo: "Igual não há",
+        artista: "Lauriete",
+        link: "https://www.youtube.com/watch?v=YWrL4Pz7o9s&list=RDYWrL4Pz7o9s&start_radio=1",
+        data: "2026-02-29",
+        observacao: "Hino do sábado - 28/02/2026",
         letra: `
-Letra - QUANDO ELE VEM
+Letra - IGUAL NÃO HÁ
 
-Nosso amigo Santo Espírito
-Venha aquecer os corações
-Vem com cura e todo Seu poder
-Vem manifestar os Seus sinais
-
-O que dizer?
-O Que fazer quando Ele vem aqui?
-Mais que ser bem-vindo
-Nós Te desejamos outra vez aqui
-
-Nosso amigo Santo Espírito
-Esperamos pelo Seu soprar
-Com Seu óleo venha nos ungir
-e com Seu fogo vem nos batizar
-
-O que dizer?
-O Que fazer quando Ele vem aqui?
-Mais que ser bem-vindo
-Nós Te desejamos outra vez aqui
-
-Faz de novo
-Faz de novo
-O Teu povo clama a Ti
-
-O que dizer?
-O Que fazer quando Ele vem aqui?
-Mais que ser bem-vindo
-Nós Te desejamos outra vez aqui
+O que adianta ter as mãos e não poder tocar?
+O que adianta ter ouvidos e não escutar?
+O que adianta ter um corpo e não se movimentar?
+O que adianta ter os olhos e não enxergar?
+Ter a sua volta bons aromas e não respirar?
+Receber o nome de Deus, porém morto está
+O meu Deus se movimenta ao som da adoração
+É muito forte o toque de Suas mãos
+Inclina seus ouvidos pra me escutar
+O meu Deus, ninguém consegue Dele se esconder
+Se Ele não quiser aparecer, faz seu povo entender
+Que em meio ao silêncio está
+E Ele está aqui, tem glória Dele aqui, tem cheiro Dele aqui
+Sua resposta é fogo sobre o altar
+E tudo que é mentira está sendo consumido, deixa eu adorar
+Ele está aqui, tem glória Dele aqui, Baal tem que cair
+Profetas da mentira irão se dobrar
+Irão reconhecer, terão que confessar
+Que só há um Deus em toda a terra e céu
+E outro igual não há
+O que adianta ter os olhos e não enxergar?
+Ter a sua volta bons aromas e não respirar?
+Receber o nome de Deus, porém morto está
+O meu Deus se movimenta ao som da adoração
+É muito forte o toque de Suas mãos
+Inclina seus ouvidos pra me escutar
+O meu Deus, ninguém consegue Dele se esconder
+Se Ele não quiser aparecer, faz seu povo entender
+Que em meio ao silêncio está
+Ele está aqui, tem glória Dele aqui, tem cheiro Dele aqui
+Sua resposta é fogo sobre o altar
+E tudo que é mentira está sendo consumido, deixa eu adorar
+Ele está aqui, tem glória Dele aqui, Baal tem que cair
+Profetas da mentira irão se dobrar
+Irão reconhecer, terão que confessar
+Que só há um Deus em toda a terra e céu
+E outro igual não há
+E outro igual não há, e outro igual não há
+E outro igual não há, e outro igual não há
+E outro igual não há, e outro igual não há
+E outro igual não há, e outro igual não há
+Ele está aqui, tem glória Dele aqui, tem cheiro Dele aqui
+Sua resposta é fogo sobre o altar
+E tudo que é mentira está sendo consumido, deixa eu adorar
+Ele está aqui, tem glória Dele aqui, Baal tem que cair
+Profetas da mentira irão se dobrar
+Irão reconhecer, terão que confessar
+Que só há um Deus em toda a terra e céu
+E outro igual não há (e outro igual não há)
+Não há
+Outro igual não há
         `,
         ativo: true
     },
     {
         id: 2,
-        titulo: "Deus dos Deuses",
-        artista: "Lauriete",
-        link: "https://www.youtube.com/watch?v=dKT91t7_TRc&list=RDdKT91t7_TRc&start_radio=1",
-        data: "2026-02-24",
-        observacao: "Hino do domingo - 24/02/2026",
+        titulo: "Quem é ele",
+        artista: "Rebeca Carvalho e Cassiane",
+        link: "https://www.youtube.com/watch?v=4dUVA8Ss5Mc&list=RD4dUVA8Ss5Mc&start_radio=1",
+        data: "2026-03-02",
+        observacao: "Hino do domingo - 01/03/2026",
         letra: `
-Letra - DEUS DOS DEUSES
+Letra - QUEM É ELE
 
-Existe um Deus no céu
-Que a letra no papel não pode descrever
-Não dá pra imaginar
-Não dá pra comparar o Seu grande poder
-Ele faz o que Ele quer
-O soberano e forte até o infinito
-Ganha a luta sem lutar
-Vence a luta e faz cansar o inimigo
-Jeová
-Deus de vida, de vitória
-Jeová
-Deus de paz, Deus de glória
-Jeová
-Vai mudar a tua história
-Hoje aqui
-(Hoje aqui)
-Quando Deus quer fazer, ninguém pode parar
-Quando manda mensagem faz profeta entregar
-Faz a nuvem descer, faz a água subir
-E se Ele soprar faz o inferno explodir
-Ele sempre resolve sem ter reunião
-Pega o homem sem Deus e derrama unção
-O seu braço é capaz de parar um trovão
-Este é o Deus dos deuses, meu irmão
-Ele faz o que Ele quer
-O soberano e forte até o infinito (até o infinito)
-Ganha a luta sem lutar
-Vence a luta e faz cansar o inimigo
-Jeová
-Deus de vida, de vitória
-Jeová
-Deus de paz, Deus de glória
-Jeová
-Vai mudar a tua história
-Hoje aqui
-(Hoje aqui)
-Quando Deus quer fazer, ninguém pode parar
-Quando manda mensagem faz profeta entregar
-Faz a nuvem descer, faz a água subir
-E se Ele soprar faz o inferno explodir
-Ele sempre resolve sem ter reunião
-Pega o homem sem Deus e derrama unção
-O seu braço é capaz de parar um trovão
-Este é o Deus dos deuses
-Quando Deus quer fazer, ninguém pode parar
-Quando manda mensagem faz profeta entregar
-Faz a nuvem descer, faz a água subir
-E se Ele soprar faz o inferno explodir
-Ele sempre resolve sem ter reunião
-Pega o homem sem Deus e derrama unção
-O seu braço é capaz de parar um trovão
-Este é o Deus dos deuses, meu irmão
-Este é o Deus dos deuses
-(Deus dos deuses)
-Este é o Deus dos deuses
-Oh, meu irmão
+Quem é ele? 
+Aquele que era antes de tudo existir 
+Quem é ele? 
+O verbo se fez carne, hoje está aqui 
+
+Quem é ele?
+Pão vivo que desceu do céu e se entregou
+Quem é ele?
+Cordeiro imaculado que ressuscitou
+
+Quem é Ele? Quem é Ele? 
+
+Quem é Ele? 
+Ao som da sua voz, Ele faz surdo ouvir 
+Quem é Ele? 
+Com o toque do cajado faz o mar se abrir
+
+Quem é Ele? 
+Subiu ao céu para preparar um novo lar 
+Quem é Ele? 
+Que a sua noiva espera, Ele voltará
+
+Ele é o Rei da Glória (3x)
+Ele é o Senhor
+
+Ele é o Rei da Glória (3x)
+Ele é o Senhor
+
+Ele é Jireh, é o Deus provedor 
+Ele é Rafah, Deus que cura a sua dor
+Ele é Yahweh, é o Grande Eu Sou:
+Ele é o Rei, ele é o Rei 
+
+Alfa e Ômega, início e fim 
+Shalom, El Shaday, Adonai, Elohim
+O Deus que era e que há de vir
+Ele é o Rei, Ele É o Rei
+
+Ele é Jireh, é o Deus provedor 
+Ele é Rafah, Deus que cura a sua dor
+Ele é Yahweh, é o Grande Eu Sou:
+Ele é o Rei, ele é o Rei 
+
+Alfa e Ômega, início e fim 
+Shalom, El Shaday, Adonai, Elohim
+O Deus que era e que há de vir
+Ele é o Rei, Ele É o Rei (3x)
+
+Ele é o Senhor
+Sua verdade vai sempre reinar
+Terra e céus 
+Glorificam seu santo nome
+Ele é exaltado, o Rei exaltado nos céus
+
+Ele é o Rei da Glória (3x)
+Ele é o Senhor
+
+Ele é o Rei da Glória (3x)
+Ele é o Senhor
+
+Quem é Ele? Quem é Ele?
         `,
         ativo: true
     }
@@ -136,7 +201,7 @@ const eventos = [
     {
         id: 1,
         titulo: "Culto - Ensino",
-        data: "2026-02-18",
+        data: "2026-02-25",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha aprender mais um pouco da palavra conosco!",
@@ -144,36 +209,36 @@ const eventos = [
     },
     {
         id: 2,
-        titulo: "Vigilia - Geral da juventude assembleiana do Estado do Paraná",
-        data: "2026-02-18",
-        hora: "22:00",
-        local: "Rua Júlia Thereza Bini, 740",
-        descricao: "Venha participar da vigilia conosco!",
-        imagem: "albuns/vigilia.jpeg"
-    },
-    {
-        id: 3,
         titulo: "Oração",
-        data: "2026-02-20",
+        data: "2026-02-27",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha ter um momento de oração!",
         imagem: "albuns/cultooracao.jpeg"
     },
     {
-        id: 4,
+        id: 3,
         titulo: "Ensaio - Jovens",
-        data: "2026-02-22",
+        data: "2026-02-29",
         hora: "16:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha Ensaiar conosoco, ter um momento de preparação!",
         imagem: "albuns/microfone.jpeg"
     },
     {
+        id: 4,
+        titulo: "Cooperação com os jovens do Dalla Torres",
+        data: "2026-02-29",
+        hora: "19:30",
+        local: "Rua Bento Munhoz Da Rocha Neto N° 48",
+        descricao: "Venha cooperar conosoco com os jovens do Dalla Torres!",
+        imagem: "albuns/encontrojovem.jpeg"
+    },
+    {
         id: 5,
         titulo: "Escola Bíblica Dominical",
-        data: "2026-02-23",
-        hora: "19:00",
+        data: "2026-03-02",
+        hora: "09:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha aprender mais da Bíblia!",
         imagem: "albuns/biblia.jpeg"
@@ -181,7 +246,7 @@ const eventos = [
     {
         id: 6,
         titulo: "Culto da família",
-        data: "2026-02-23",
+        data: "2026-03-02",
         hora: "18:45",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha cutuar conosco conosco!",
