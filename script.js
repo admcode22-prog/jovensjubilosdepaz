@@ -409,6 +409,7 @@ function initHinosSemana() {
 }
 
 // FORMULÁRIOS - COM INTEGRAÇÃO GOOGLE SHEETS
+// FORMULÁRIOS - COM INTEGRAÇÃO GOOGLE SHEETS CORRIGIDA
 function initForms() {
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKt2rq7hXUfGWuivD8M4yHKW3h0HbMIYB2dd8BzEis9SGnBTYeDbAyPDHOWpA68J3XtA/exec";
     
@@ -423,21 +424,33 @@ function initForms() {
                 return;
             }
             
-            // Coleta os dados
-            const inputs = this.querySelectorAll('input, select, textarea');
-            const dados = {};
+            // Pega os valores pelos IDs ou placeholders corretos
+            const nome = this.querySelector('input[placeholder*="Nome"]')?.value || '';
+            const email = this.querySelector('input[placeholder*="E-mail"]')?.value || '';
+            const telefone = this.querySelector('input[placeholder*="WhatsApp"]')?.value || '';
+            const idade = this.querySelector('input[placeholder*="Idade"]')?.value || '';
+            const acomodacao = this.querySelector('select')?.value || '';
+            const observacoes = this.querySelector('textarea')?.value || '';
             
-            inputs.forEach(input => {
-                if (input.type === 'submit') return;
-                const nome = input.placeholder || input.name || input.id || 'campo';
-                dados[nome] = input.value;
-            });
-            
-            // Validação básica
-            if (!dados['Nome completo'] || !dados['E-mail'] || !dados['WhatsApp']) {
+            // Validação
+            if (!nome || !email || !telefone || !idade || !acomodacao) {
                 alert('Por favor, preencha todos os campos obrigatórios!');
                 return;
             }
+            
+            // Prepara os dados no formato que o Google Sheets espera
+            const dados = {
+                nome: nome,
+                email: email,
+                telefone: telefone,
+                idade: idade,
+                acomodacao: acomodacao,
+                observacoes: observacoes,
+                status: "Pendente",
+                valor: "R$400,00"
+            };
+            
+            console.log('Enviando dados:', dados); // Para debug
             
             // Desabilita o botão
             const botao = this.querySelector('button[type="submit"]');
@@ -448,43 +461,72 @@ function initForms() {
             
             try {
                 // Envia para o Google Sheets
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({
-                        ...dados,
-                        formulario: 'retiro',
-                        data_envio: new Date().toLocaleString('pt-BR')
-                    })
+                    body: JSON.stringify(dados)
                 });
                 
-                // Mesmo com no-cors, consideramos sucesso
                 alert('✅ Inscrição enviada com sucesso! Em breve entraremos em contato.');
                 this.reset();
                 
             } catch (error) {
-                console.log('Erro no envio, mas salvando localmente:', error);
-                alert('✅ Inscrição recebida! (Modo offline)');
-                
-                // Salva no localStorage como backup
-                const backup = JSON.parse(localStorage.getItem('inscricoes_retiro') || '[]');
-                backup.push({
-                    ...dados,
-                    data: new Date().toISOString()
-                });
-                localStorage.setItem('inscricoes_retiro', JSON.stringify(backup));
+                console.log('Erro no envio:', error);
+                alert('❌ Erro ao enviar. Tente novamente ou contate um líder.');
                 
             } finally {
-                // Reabilita o botão
                 botao.textContent = textoOriginal;
                 botao.disabled = false;
                 this.classList.remove('enviando');
             }
         });
     }
+    
+    // Formulário de Contato
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const nome = this.querySelector('input[placeholder*="nome"]')?.value || '';
+            const email = this.querySelector('input[type="email"]')?.value || '';
+            const mensagem = this.querySelector('textarea')?.value || '';
+            
+            const dados = {
+                nome: nome,
+                email: email,
+                mensagem: mensagem,
+                tipo: "contato"
+            };
+            
+            const botao = this.querySelector('button[type="submit"]');
+            const textoOriginal = botao.textContent;
+            botao.textContent = 'Enviando...';
+            botao.disabled = true;
+            
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dados)
+                });
+                
+                alert('✅ Mensagem enviada com sucesso!');
+                this.reset();
+                
+            } catch (error) {
+                alert('❌ Erro ao enviar. Tente novamente.');
+            } finally {
+                botao.textContent = textoOriginal;
+                botao.disabled = false;
+            }
+        });
+    }
+}
     
     // Formulário de Contato
     const contactForm = document.getElementById('contactForm');
@@ -525,4 +567,3 @@ function initForms() {
             }
         });
     }
-}
