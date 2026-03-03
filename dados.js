@@ -43,139 +43,93 @@ const eventoPrincipal = {
 const hinosSemana = [
     {
         id: 1,
-        titulo: "Igual não há",
-        artista: "Lauriete",
-        link: "https://www.youtube.com/watch?v=YWrL4Pz7o9s&list=RDYWrL4Pz7o9s&start_radio=1",
-        data: "2026-02-29",
-        observacao: "Hino do sábado - 28/02/2026",
+        titulo: "Que Se Abram Os Céus",
+        artista: "Nívea Soares",
+        link: "https://www.youtube.com/watch?v=kXKwkQk528A",
+        data: "2026-03-09",
+        observacao: "Hino do sábado - 08/03/2026",
         letra: `
-Letra - IGUAL NÃO HÁ
+Letra - QUE SE ABRA OS CÉUS
 
-O que adianta ter as mãos e não poder tocar?
-O que adianta ter ouvidos e não escutar?
-O que adianta ter um corpo e não se movimentar?
-O que adianta ter os olhos e não enxergar?
-Ter a sua volta bons aromas e não respirar?
-Receber o nome de Deus, porém morto está
-O meu Deus se movimenta ao som da adoração
-É muito forte o toque de Suas mãos
-Inclina seus ouvidos pra me escutar
-O meu Deus, ninguém consegue Dele se esconder
-Se Ele não quiser aparecer, faz seu povo entender
-Que em meio ao silêncio está
-E Ele está aqui, tem glória Dele aqui, tem cheiro Dele aqui
-Sua resposta é fogo sobre o altar
-E tudo que é mentira está sendo consumido, deixa eu adorar
-Ele está aqui, tem glória Dele aqui, Baal tem que cair
-Profetas da mentira irão se dobrar
-Irão reconhecer, terão que confessar
-Que só há um Deus em toda a terra e céu
-E outro igual não há
-O que adianta ter os olhos e não enxergar?
-Ter a sua volta bons aromas e não respirar?
-Receber o nome de Deus, porém morto está
-O meu Deus se movimenta ao som da adoração
-É muito forte o toque de Suas mãos
-Inclina seus ouvidos pra me escutar
-O meu Deus, ninguém consegue Dele se esconder
-Se Ele não quiser aparecer, faz seu povo entender
-Que em meio ao silêncio está
-Ele está aqui, tem glória Dele aqui, tem cheiro Dele aqui
-Sua resposta é fogo sobre o altar
-E tudo que é mentira está sendo consumido, deixa eu adorar
-Ele está aqui, tem glória Dele aqui, Baal tem que cair
-Profetas da mentira irão se dobrar
-Irão reconhecer, terão que confessar
-Que só há um Deus em toda a terra e céu
-E outro igual não há
-E outro igual não há, e outro igual não há
-E outro igual não há, e outro igual não há
-E outro igual não há, e outro igual não há
-E outro igual não há, e outro igual não há
-Ele está aqui, tem glória Dele aqui, tem cheiro Dele aqui
-Sua resposta é fogo sobre o altar
-E tudo que é mentira está sendo consumido, deixa eu adorar
-Ele está aqui, tem glória Dele aqui, Baal tem que cair
-Profetas da mentira irão se dobrar
-Irão reconhecer, terão que confessar
-Que só há um Deus em toda a terra e céu
-E outro igual não há (e outro igual não há)
-Não há
-Outro igual não há
+Tu és bem-vindo aqui
+E em nosso coração
+Toma a direção
+
+Deus, fogo consumidor
+Sem impedimentos vem
+Face a face, Senhor
+
+Sopra em nós, Espírito
+Te queremos, Deus
+
+Estou de pé
+Na presença do Rei
+Tua glória está aqui
+
+Teu amor liberta-me
+Estás aqui
+No trono de louvor
+Tua presença me curou
+Fascinado estou
+
+Que se abram os céus
+O teu reino vem
+Nossa fé está
+No nosso Deus
+
+Que os céus fechados se abram
+Teu reino venha mover
+A nossa fé e esperança
+Estão em Deus
+Grande Deus
         `,
         ativo: true
     },
     {
         id: 2,
-        titulo: "Quem é ele",
-        artista: "Rebeca Carvalho e Cassiane",
-        link: "https://www.youtube.com/watch?v=4dUVA8Ss5Mc&list=RD4dUVA8Ss5Mc&start_radio=1",
-        data: "2026-03-02",
-        observacao: "Hino do domingo - 01/03/2026",
+        titulo: "Jeová Jireh",
+        artista: "Aline Barros",
+        link: "https://www.youtube.com/watch?v=YyFd_dXy494",
+        data: "2026-03-09",
+        observacao: "Hino do domingo - 07/03/2026",
         letra: `
-Letra - QUEM É ELE
+Letra - JEOVÁ JIREH
 
-Quem é ele? 
-Aquele que era antes de tudo existir 
-Quem é ele? 
-O verbo se fez carne, hoje está aqui 
+Composição: Samuel Messias
+Intérprete: Aline Barros
 
-Quem é ele?
-Pão vivo que desceu do céu e se entregou
-Quem é ele?
-Cordeiro imaculado que ressuscitou
+O fogo não me queima
+Nas águas não vou afundar
+Pois estás comigo
+Não estou sozinho
 
-Quem é Ele? Quem é Ele? 
+Eu estou guardado
+No esconderijo
+Não estou sozinho
+Tu estás comigo
 
-Quem é Ele? 
-Ao som da sua voz, Ele faz surdo ouvir 
-Quem é Ele? 
-Com o toque do cajado faz o mar se abrir
+Temer por quê?
+Se eu estou guardado
+Por quem nunca perdeu batalhas
+Seu nome é
+Jeová Jireh
+Irás prover de novo
+Eu creio em Ti
 
-Quem é Ele? 
-Subiu ao céu para preparar um novo lar 
-Quem é Ele? 
-Que a sua noiva espera, Ele voltará
+Haja o que houver
+Venha o que vier
+Irás prover de novo
+Eu creio em Ti
 
-Ele é o Rei da Glória (3x)
-Ele é o Senhor
+Eu não vivo do que vejo
+Vivo do que creio
+Irás prover de novo
+Eu creio em Ti
 
-Ele é o Rei da Glória (3x)
-Ele é o Senhor
-
-Ele é Jireh, é o Deus provedor 
-Ele é Rafah, Deus que cura a sua dor
-Ele é Yahweh, é o Grande Eu Sou:
-Ele é o Rei, ele é o Rei 
-
-Alfa e Ômega, início e fim 
-Shalom, El Shaday, Adonai, Elohim
-O Deus que era e que há de vir
-Ele é o Rei, Ele É o Rei
-
-Ele é Jireh, é o Deus provedor 
-Ele é Rafah, Deus que cura a sua dor
-Ele é Yahweh, é o Grande Eu Sou:
-Ele é o Rei, ele é o Rei 
-
-Alfa e Ômega, início e fim 
-Shalom, El Shaday, Adonai, Elohim
-O Deus que era e que há de vir
-Ele é o Rei, Ele É o Rei (3x)
-
-Ele é o Senhor
-Sua verdade vai sempre reinar
-Terra e céus 
-Glorificam seu santo nome
-Ele é exaltado, o Rei exaltado nos céus
-
-Ele é o Rei da Glória (3x)
-Ele é o Senhor
-
-Ele é o Rei da Glória (3x)
-Ele é o Senhor
-
-Quem é Ele? Quem é Ele?
+A tempestade
+E o Vento Forte
+Não vão roubar a minha fé
+Em Ti meu Deus
         `,
         ativo: true
     }
@@ -201,7 +155,7 @@ const eventos = [
     {
         id: 1,
         titulo: "Culto - Ensino",
-        data: "2026-02-25",
+        data: "2026-03-04",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha aprender mais um pouco da palavra conosco!",
@@ -210,7 +164,7 @@ const eventos = [
     {
         id: 2,
         titulo: "Oração",
-        data: "2026-02-27",
+        data: "2026-03-06",
         hora: "20:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha ter um momento de oração!",
@@ -219,7 +173,7 @@ const eventos = [
     {
         id: 3,
         titulo: "Ensaio - Jovens",
-        data: "2026-02-29",
+        data: "2026-03-08",
         hora: "16:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha Ensaiar conosoco, ter um momento de preparação!",
@@ -227,17 +181,17 @@ const eventos = [
     },
     {
         id: 4,
-        titulo: "Cooperação com os jovens do Dalla Torres",
-        data: "2026-02-29",
+        titulo: "Culto dos jovens",
+        data: "2026-03-08",
         hora: "19:30",
         local: "Rua Bento Munhoz Da Rocha Neto N° 48",
-        descricao: "Venha cooperar conosoco com os jovens do Dalla Torres!",
+        descricao: "Venha participar do nosso culto mensal!",
         imagem: "albuns/encontrojovem.jpeg"
     },
     {
         id: 5,
         titulo: "Escola Bíblica Dominical",
-        data: "2026-03-02",
+        data: "2026-03-09",
         hora: "09:00",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha aprender mais da Bíblia!",
@@ -246,7 +200,7 @@ const eventos = [
     {
         id: 6,
         titulo: "Culto da família",
-        data: "2026-03-02",
+        data: "2026-03-09",
         hora: "18:45",
         local: "Rua Júlia Thereza Bini, 740",
         descricao: "Venha cutuar conosco conosco!",
@@ -269,7 +223,7 @@ const postsBlog = [
         id: 1,
         titulo: "Bem-vindos ao Novo Ano 2026",
         data: "2026-02-04",
-        autor: "Líderes Hemerson, Eliezer, Veridiana e Jheniffer",
+        autor: "Líderes Eliezer e Jheniffer",
         resumo: "Neste novo ano ministerial, convidamos todos os jovens a se engajarem nas atividades e crescerem juntos na fé.",
         imagem: "albuns/2026.jpeg",
         conteudo: `
@@ -365,17 +319,17 @@ const postsBlog = [
         resumo: "Uma mensagem para aquecer o coração",
         imagem: "albuns/lider.jpeg",
         conteudo: `
-            <h4>Líder Hemerson:</h4>
+            <h4>Líder Eliezer:</h4>
             
             <p>Jovens, sejam fortes e corajosos:
             Ao enfrentarmos as dificuldades da vida, devemos lembrar que a verdadeira força espiritual vem de um relacionamento íntimo com Deus, conforme prometido em Filipenses 4:13, onde somos lembrados de que "tudo posso naquele que me fortalece". Portanto, cultivar essa relação e buscar constantemente a orientação divina é essencial para vencer as batalhas espirituais que enfrentamos diariamente, seja assim, estejam sempre firmes e confiantes em Deus.</p>
             
             <h4>Líder Eliezer:</h4>
-            <p>atualizando</p>
-            
-            <h4>Líder Veridiane:</h4>
+            <p>Que neste ano de 2026 venhamos a entender que, em Cristo, tudo se renovou. O nosso passado não importa mais, mas sim o que faremos com a bênção da reconciliação com Deus, a nossa salvação.
 
-            <p>Jovens, sabemos que muitas são as oportunidades que o mundo oferece lá fora, mas em Cristo somos muito mais que vencedores, os sonhos que estão no papel, só é possível quando temos um Deus que nos guia e faz muito mais do que pedimos ou desejamos. Persevere, continue. O que está por vir é maior do que o que ficou para trás.</p>
+            Jovens, creiam que neste ano Deus tem algo novo para a vida de vocês, em todas as áreas. Em Cristo já estão manifestas todas as nossas bênçãos; basta apenas crer, confiar e buscar tudo com fé e ousadia.
+
+            Isaias 43: 18-19</p>
             
             <h4>Líder Jheniffer:</h4>
 
