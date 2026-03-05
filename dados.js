@@ -301,11 +301,6 @@ const postsBlog = [
         imagem: "albuns/lider.jpeg",
         conteudo: `
             <h4>Líder Eliezer:</h4>
-            
-            <p>Jovens, sejam fortes e corajosos:
-            Ao enfrentarmos as dificuldades da vida, devemos lembrar que a verdadeira força espiritual vem de um relacionamento íntimo com Deus, conforme prometido em Filipenses 4:13, onde somos lembrados de que "tudo posso naquele que me fortalece". Portanto, cultivar essa relação e buscar constantemente a orientação divina é essencial para vencer as batalhas espirituais que enfrentamos diariamente, seja assim, estejam sempre firmes e confiantes em Deus.</p>
-            
-            <h4>Líder Eliezer:</h4>
             <p>Que neste ano de 2026 venhamos a entender que, em Cristo, tudo se renovou. O nosso passado não importa mais, mas sim o que faremos com a bênção da reconciliação com Deus, a nossa salvação.
 
             Jovens, creiam que neste ano Deus tem algo novo para a vida de vocês, em todas as áreas. Em Cristo já estão manifestas todas as nossas bênçãos; basta apenas crer, confiar e buscar tudo com fé e ousadia.
