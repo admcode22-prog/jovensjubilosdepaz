@@ -288,7 +288,7 @@ const postsBlog = [
             <p>Contamos com sua presença!</p>
             
             <p>Abraços,<br>
-            <strong>Nathaly</strong><br>
+            <strong>Jhennifer</strong><br>
             Secretaria do Retiro</p>
         `
     },
