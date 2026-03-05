@@ -277,13 +277,6 @@ const postsBlog = [
             
             <p>Este ano teremos atividades especiais:</p>
             
-            <h5>Pregadores confirmados:</h5>
-            <ul>
-                <li><strong>Pastor Roberto Silva:</strong> "Fé em tempos de incerteza"</li>
-                <li><strong>Missionária Ana Paula:</strong> "Deus tem um propósito para sua vida"</li>
-                <li><strong>Pastor Jovem Lucas:</strong> "Relacionamentos saudáveis"</li>
-            </ul>
-            
             <h5>Atividades:</h5>
             <ul>
                 <li>Trilhas</li>
@@ -302,7 +295,7 @@ const postsBlog = [
             
             <p><strong>Vagas limitadas!</strong> São apenas 60 vagas disponíveis.</p>
             
-            <p>Para mais informações: (31) 7557-6657 ou jovens@igreja.com</p>
+            <p>Para mais informações: (41) 99768-7706 ou jovens@igreja.com</p>
             
             <p>Contamos com sua presença!</p>
             
