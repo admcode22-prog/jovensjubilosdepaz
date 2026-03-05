@@ -247,7 +247,7 @@ const postsBlog = [
             <p>Que Deus abençoe ricamente nosso ano!</p>
             
             <p>Com carinho,<br>
-            <strong>Líderes Hemerson, Eliezer, Veridiana e Jheniffer</strong><br>
+            <strong>Líderes Eliezer e Jheniffer</strong><br>
             </p>
         `,
         conteudoExtra: `
