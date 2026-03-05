@@ -6,21 +6,9 @@
 const aniversariantesSemana = [
     {
         id: 1,
-        nome: "Lara Keyti",
-        data: "2026-02-24",
+        nome: "Larissa Mendes",
+        data: "2026-03-05",
         foto: "albuns/aniversariantes/1.jpeg",
-    },
-    {
-        id: 2,
-        nome: "Caio Jadiel",
-        data: "2026-02-26",
-        foto: "albuns/aniversariantes/2.jpeg",
-    },
-    {
-        id: 3,
-        nome: "Fernanda Menezes",
-        data: "2026-03-02",
-        foto: "albuns/aniversariantes/3.jpeg",
     }
 ];
 
